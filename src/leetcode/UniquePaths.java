@@ -54,7 +54,7 @@ public class UniquePaths {
         int k = m - 1;
         double res = 1;
         for (int i = 1; i <= k; i++) {
-            res = res * (count - k + 1) / i;
+            res = res * (count - k + i) / i;
         }
         return (int)res;
     }
