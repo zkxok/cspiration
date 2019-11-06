@@ -44,15 +44,15 @@ public class Combinations {
         return res;
     }
 
-    public void helper(List<List<Integer>> res, List<Integer> list, int n, int k, int start) {
+    public void helper(List<List<Integer>> res, List<Integer> tempList, int n, int k, int start) {
         if (k == 0) {
-            res.add(new ArrayList<>(list));
+            res.add(new ArrayList<>(tempList));
             return;
         }
         for (int i = start; i <= n; i++) {
-            list.add(i);
-            helper(res, list, n, k - 1, i + 1);
-            list.remove(list.size() - 1);
+            tempList.add(i);
+            helper(res, tempList, n, k - 1, i + 1);
+            tempList.remove(tempList.size() - 1);
         }
     }
 }
