@@ -36,10 +36,10 @@ public class BinaryTreeZigzagLevelOrderTraversal {
         if (root == null) return res;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        boolean x = true;
+        boolean x = true;//奇数层还是偶数层
         while (!queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> list = new ArrayList<>();
+            List<Integer> list = new ArrayList<>();//把他当成栈/数组使用,比我的方法更好，他少使用了一个栈
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.poll();
                 if (x) {
@@ -55,7 +55,7 @@ public class BinaryTreeZigzagLevelOrderTraversal {
                 }
             }
             res.add(list);
-            x = x ? false : true;
+            x = x ? false : true;//取反
         }
         return res;
     }
