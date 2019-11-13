@@ -49,4 +49,54 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
         }
         return root;
     }
+    
+    
+    
+    
+    
+    
+    
+    public TreeNode buildTree２(int[] inorder, int[] postorder) {
+        return helper２(0,inorder.length-1,postorder.length-1,inorder,postorder);
+    }
+
+    public TreeNode helper２(int inStart,int inEnd,int postEnd,int[] inorder, int[] postorder){
+        if(postEnd<0||inStart>inEnd){//postEnd<0||可加可不加
+            return null;
+        }
+        TreeNode root = new TreeNode(postorder[postEnd]);//3
+        int inIndex = 0;
+        for(int i=inStart;i<=inEnd;i++){
+            if(inorder[i]==root.val) inIndex = i;//这里注意是inorder[i]
+        }
+        root.left=helper(inStart,inIndex-1,postEnd - (inEnd- inIndex) - 1,inorder,postorder);//postEnd-inIndex+inStart-1会越界
+        root.right=helper(inIndex+1,inEnd,postEnd-1,inorder,postorder);//preStart+inIndex-inStart+1
+        return root;
+    }
+
+    // public TreeNode buildTree(int[] inorder, int[] postorder) {
+    //     return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
+    // }
+
+    // public TreeNode helper(int[] inorder, int[] postorder, int postEnd, int inStart, int inEnd) {
+    //     if (inStart > inEnd) {
+    //         return null;
+    //     }
+
+    //     int currentVal = postorder[postEnd];
+    //     TreeNode current = new TreeNode(currentVal);
+        
+    //     int inIndex = 0; 
+    //     for (int i = inStart; i <= inEnd; i++) {
+    //         if (inorder[i] == currentVal) {
+    //             inIndex = i;
+    //         }
+    //     }
+    //     TreeNode left = helper(inorder, postorder, postEnd - (inEnd- inIndex) - 1, inStart, inIndex - 1);
+    //     TreeNode right = helper(inorder, postorder, postEnd - 1, inIndex + 1, inEnd);
+    //     current.left = left;
+    //     current.right = right;
+    //     return current;
+    // }
+    
 }
