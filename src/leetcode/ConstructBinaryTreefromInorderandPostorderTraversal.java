@@ -74,6 +74,28 @@ public class ConstructBinaryTreefromInorderandPostorderTraversal {
         return root;
     }
 
+    
+    
+    
+    
+    public TreeNode buildTree3(int[] inorder, int[] postorder) {
+        return helper3(0,inorder.length-1,postorder.length-1,inorder,postorder);
+    }
+    public TreeNode helper3(int inStart,int inEnd,int postEnd,int[] inorder, int[] postorder){
+        if(postEnd<0||inStart>inEnd){//postEnd<0||可加可不加
+            return null;
+        }
+        TreeNode root = new TreeNode(postorder[postEnd]);//3
+        int index = 0;
+        for(int i=inStart;i<=inEnd;i++){
+            if(inorder[i]==root.val) index = i;//这里注意是inorder[i]
+        }
+        int offset = inEnd- index + 1;//postEnd - (inEnd- inIndex) - 1
+        root.left=helper(inStart,index-1,postEnd - offset,inorder,postorder);//postEnd-inIndex+inStart-1会越界
+        root.right=helper(index+1,inEnd,postEnd-1,inorder,postorder);//preStart+inIndex-inStart+1
+        return root;
+    }
+
     // public TreeNode buildTree(int[] inorder, int[] postorder) {
     //     return helper(inorder, postorder, postorder.length - 1, 0, inorder.length - 1);
     // }
