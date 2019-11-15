@@ -29,8 +29,8 @@ public class PopulatingNextRightPointersinEachNode {
 
      * @param root
      */
-    public void connect(TreeLinkNode root) {
-        if (root == null) return;
+    public Node connect(Node root) {
+        if (root == null) return root;
         if (root.left != null) {
             root.left.next = root.right;
         }
@@ -39,6 +39,7 @@ public class PopulatingNextRightPointersinEachNode {
         }
         connect(root.left);
         connect(root.right);
+        return root;
     }
 
     //space : O(1)
