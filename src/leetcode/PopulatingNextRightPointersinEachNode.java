@@ -43,10 +43,10 @@ public class PopulatingNextRightPointersinEachNode {
     }
 
     //space : O(1)
-    public void connect2(TreeLinkNode root) {
-        TreeLinkNode start = root;
+    public Node connect2(Node root) {
+        Node start = root;
         while (start != null) {
-            TreeLinkNode cur = start;
+            Node cur = start;
             while (cur != null) {
                 if (cur.left != null) {
                     cur.left.next = cur.right;
@@ -58,5 +58,6 @@ public class PopulatingNextRightPointersinEachNode {
             }
             start = start.left;
         }
+        return root;
     }
 }
