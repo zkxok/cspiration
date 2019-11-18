@@ -67,7 +67,7 @@ public class PopulatingNextRightPointersinEachNode {
         if (root == null) {
             return null;
         }
-        // 借助队列实现层次遍历
+        // 借助队列实现层次遍历,但是题目要求了常量级额外空间，所以不能使用队列
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
