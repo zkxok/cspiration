@@ -78,4 +78,31 @@ public class PopulatingNextRightPointersinEachNodeII {
         return root;
     }
 
+    
+    
+    
+    public Node connect(Node root) {
+        if (root == null) {
+            return null;
+        }
+        // 借助队列实现层次遍历
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size-- > 0) {
+                Node node = queue.remove();
+                if (size > 0) {
+                    node.next = queue.peek();
+                }
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+        }
+        return root;
+    }
 }
