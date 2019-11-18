@@ -56,18 +56,26 @@ public class PopulatingNextRightPointersinEachNodeII {
     }
 
     public Node connect(Node root) {
-        Node start  = root;
-        while(start!=null){
-            Node cur = start;
-            while(cur!=null){
-                if(cur.left!=null) cur.left.next=cur.right;
-                if(cur.right!=null&&cur.next!=null) cur.right.next= cur.next.left;
+        Node cur = root;
+        while (cur != null) {
+            Node dummy = new Node();
+            Node tail = dummy;
+            //遍历 cur 的当前层
+            while (cur != null) {
+                if (cur.left != null) {
+                    tail.next = cur.left;
+                    tail = tail.next;
+                }
+                if (cur.right != null) {
+                    tail.next = cur.right;
+                    tail = tail.next;
+                }
                 cur = cur.next;
             }
-            start = start.left;
+            //更新 cur 到下一层
+            cur = dummy.next;
         }
         return root;
     }
-
 
 }
