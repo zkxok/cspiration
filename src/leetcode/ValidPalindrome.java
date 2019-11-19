@@ -25,18 +25,18 @@ public class ValidPalindrome {
      * @param s
      * @return
      */
-    public static boolean isPalindrome(String s) {
+    public boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) return true;
         int left = 0;
         int right = s.length() - 1;
         while (left < right) {
-            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {
+            while (left < right && !Character.isLetterOrDigit(s.charAt(left))) {//不是数字和字母
                 left++;
             }
-            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {
+            while (left < right && !Character.isLetterOrDigit(s.charAt(right))) {//不是数字和字母
                 right--;
             }
-            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {//字母转小写
                 return false;
             }
             left++;
