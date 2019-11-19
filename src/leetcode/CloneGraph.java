@@ -67,4 +67,41 @@ public class CloneGraph {
         }
         return new ArrayList<>(set);
     }
+    
+    
+    
+    **************************
+    public Node cloneGraph(Node node) {
+        HashMap<Node, Node> map = new HashMap<>();
+        return helper(node,map);
+    }
+    public Node helper(Node node,Map<Node, Node> map) {
+        if (node == null) return null;
+        if (map.containsKey(node)) return map.get(node);
+        Node dup = new Node(node.val,new ArrayList<Node>());
+        map.put(node, dup);
+        for (Node neighboer : node.neighbors) {
+            Node clone = helper(neighboer,map);
+            dup.neighbors.add(clone);
+        }
+        return dup;
+    }
+    
+    **************************
+    HashMap<Node, Node> map = new HashMap<>();
+    public Node cloneGraph(Node node) {
+        return helper(node);
+    }
+    public Node helper(Node node) {
+        if (node == null) return null;
+        if (map.containsKey(node)) return map.get(node);
+        Node clonedNode = new Node(node.val,new ArrayList<Node>());
+        map.put(node, clonedNode);
+        for (Node neighboer : node.neighbors) {
+            Node clone = helper(neighboer);
+            clonedNode.neighbors.add(clone);
+        }
+        return clonedNode;
+    }
+
 }
