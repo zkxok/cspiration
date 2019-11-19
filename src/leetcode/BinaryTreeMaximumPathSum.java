@@ -36,11 +36,10 @@ public class BinaryTreeMaximumPathSum {
 
      */
 
-    int res;
-
+    //递归中利用全局变量
+    int res = Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
         if (root == null) return 0;
-        res = Integer.MIN_VALUE;
         helper(root);
         return res;
     }
@@ -48,7 +47,9 @@ public class BinaryTreeMaximumPathSum {
         if (root == null) return 0;
         int left = Math.max(0, helper(root.left));
         int right = Math.max(0, helper(root.right));
+        //求的过程中考虑包含当前根节点的最大路径
         res = Math.max(res, left + right + root.val);
+        //只返回包含当前根节点和左子树或者右子树的路径
         return Math.max(left, right) + root.val;
     }
 }
