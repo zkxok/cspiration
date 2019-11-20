@@ -57,4 +57,21 @@ public class GasStation {
         }
         return total < 0 ? -1 : start;
     }
+    
+    
+     //https://www.cnblogs.com/boring09/p/4248482.html
+     public int canCompleteCircuit(int[] gas, int[] cost) {
+        int start = 0; // 起始位置
+        int remain = 0; // 当前剩余燃料
+        int debt = 0; // 前面没能走完的路上欠的债
+        for (int i = 0; i < gas.length; i++) {
+            remain += gas[i] - cost[i];
+            if (remain < 0) {
+                debt += remain;
+                start = i + 1;
+                remain = 0;
+            }
+        }
+        return remain + debt >= 0 ? start : -1;
+    }
 }
