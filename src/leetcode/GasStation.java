@@ -67,7 +67,7 @@ public class GasStation {
         for (int i = 0; i < gas.length; i++) {
             remain += gas[i] - cost[i];
             if (remain < 0) {
-                debt += remain;
+                debt += remain;//从i+1开始，i+1前面的路最终还是会走到，所以欠的债要还
                 start = i + 1;
                 remain = 0;
             }
