@@ -37,12 +37,14 @@ public class SingleNumberIII {
      * @param nums
      * @return
      */
-    public int[] singleNumber(int[] nums) {
+    //分组法
+    public int[] singleNumber2(int[] nums) {
         int diff = 0;
         for (int num : nums) {
             diff ^= num;
         }
-        diff &= -diff;
+        diff &= -diff;//这一步最难理解,diff是两个不同的数异或来的结果,diff某位为１，说明在这位上，这个两个数不同（分别为0和1，根据这个就可以将这个两个元素分开到两个组里
+        //最后得出来的diff的结果，是这个两个数出现不同是从哪位开始的(从低位到高位)
         int[] res = new int[2];
         for (int num : nums) {
             if ((num & diff) == 0) {
@@ -50,6 +52,21 @@ public class SingleNumberIII {
             } else {
                 res[1] ^= num;
             }
+        }
+        return res;
+    }
+
+
+    public int[] singleNumber(int[] nums) {
+        int diff = 0;
+        int [] res = new int[2];
+        for (int num : nums) diff ^= num;
+        
+        diff &= -diff;//-diff先取补码，再加一，此句找出最右侧的1
+        
+        for (int num : nums){
+            if ((num & diff) == 0) res[0] ^= num;
+            else res[1] ^= num;
         }
         return res;
     }
