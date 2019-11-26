@@ -73,4 +73,28 @@ public class FactorCombinations {
             }
         }
     }
+    
+    **************
+        
+    public List<List<Integer>> getFactors(int n) {
+        List<List<Integer>> res =new ArrayList<>();
+        helper(res,n,new ArrayList<>(),2);
+        return res;
+    }
+
+    public void helper(List<List<Integer>> res,int n,List<Integer> tempList,int start){
+        if(n==1){//都分解完
+            if(tempList.size()>1){
+                res.add(new ArrayList<>(tempList));
+            }
+            return;
+        }
+        //这里回不需要去重复,如n=12=3*4=4*3;如果设置i=2,那么就会出现重复，但顺序不一样的解;但是这里i=start，后续start递增，所以后面不会出现比前面小的因数
+        for(int i=start;i<=n;i++){//一定要到n,比如12=2*6;第２轮,n=6,不到n,6就无法区到
+            if(n%i!=0)continue;
+            tempList.add(i);
+            helper(res,n/i,tempList,i);//6
+            tempList.remove(tempList.size()-1);
+        }
+    }
 }
