@@ -25,7 +25,7 @@ public class FindMinimuminRotatedSortedArray {
      * @return
      */
     public int findMin(int[] nums) {
-        if (nums == null || nums.length == 0) return -1;
+        if (nums == null || nums.length == 0) return Integer.MIN_VALUE;
         int start = 0;
         int end = nums.length - 1;
         while (start + 1 < end) {
