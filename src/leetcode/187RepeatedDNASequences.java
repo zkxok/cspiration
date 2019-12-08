@@ -36,9 +36,9 @@ public class RepeatedDNASequences {
         HashSet<String> seen = new HashSet<>();
         HashSet<String> repeated = new HashSet<>();
         for (int i = 0; i < s.length() - 9; i++) {
-            String temp = s.substring(i, i + 10);
-            if (!seen.add(temp)) {
-                repeated.add(temp);
+            String temp = s.substring(i, i + 10);//i+10索引的字符截取不到
+            if (!seen.add(temp)) {//不能加入seen这个HashSet,说明已经有了temp
+                repeated.add(temp);//也用HashSet，这样repeated中就不会出现重复的元素
             }
         }
         return new ArrayList<>(repeated);
