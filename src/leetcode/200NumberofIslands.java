@@ -52,7 +52,7 @@ public class NumberofIslands {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
-                    //深度优先遍历，把和这个'1'挨着的都变成0
+                    //深度优先遍历，把和这个'1'挨着的都变成0,把属于这个岛的'1'都变成了0
                     dfs(grid, i, j);
                     res++;
                 }
