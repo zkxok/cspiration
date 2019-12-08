@@ -48,10 +48,11 @@ public class BinaryTreeRightSideView {
 
     private void helper(List<Integer> res, TreeNode root, int level) {
         if (root == null) return;
+        //右视图，每层只加入一个节点
         if (res.size() == level) {
             res.add(root.val);
         }
-        helper(res, root.right, level + 1);
+        helper(res, root.right, level + 1);//右边要先遍历到，右边没有才会遍历左边
         helper(res, root.left, level + 1);
     }
 
@@ -67,6 +68,24 @@ public class BinaryTreeRightSideView {
                 if (i == 0) res.add(cur.val);
                 if (cur.right != null) queue.offer(cur.right);
                 if (cur.left != null) queue.offer(cur.left);
+            }
+        }
+        return res;
+    }
+    
+    
+    public List<Integer> rightSideView3(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if(root==null) return res;
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            for(int i=0;i<size;i++){
+                TreeNode cur = queue.poll();
+                if(i==size-1) res.add(cur.val);
+                if(cur.left!=null) queue.offer(cur.left);
+                if(cur.right!=null) queue.offer(cur.right);
             }
         }
         return res;
