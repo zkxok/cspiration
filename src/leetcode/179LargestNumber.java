@@ -39,10 +39,11 @@ public class LargestNumber {
             public int compare(String str1, String str2) {
                 String s1 = str1 + str2;
                 String s2 = str2 + str1;
-                return s2.compareTo(s1);
+                //降序排列,大的在前,小的在后
+                return s2.compareTo(s1);//s2>s1返回1 -> str2在前>str1在前
             }
         });
-        if (res[0].charAt(0) == '0') {
+        if (res[0].charAt(0) == '0') {//避免出现[0,0]
             return "0";
         }
         StringBuilder sb = new StringBuilder();
