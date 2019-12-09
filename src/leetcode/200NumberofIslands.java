@@ -122,3 +122,57 @@ public class NumberofIslands {
         }
     }
 }
+
+
+
+
+class Solution {
+    int m ,n;
+    public int numIslands(char[][] grid) {
+        m = grid.length;
+        if(m<=0) return 0;
+        n = grid[0].length;
+        int res=0;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(grid[i][j]=='1'){
+                    bfs(grid,i,j);
+                    res++;
+                } 
+            }
+        }
+        return res;
+    }
+
+    public void bfs(char[][] grid,int x,int y){
+        //grid[x][y] = '0';//此节点自身也是1，也需要置'0'，
+        //但是实际上不置'0',也不影响最后结果,因为它上下左右都置'0'了,和下一个岛的'1',
+        //是不可能相邻,所以不会再次遍历遍历这里,相当于每个岛只保存了第一次遍历到的那个'1';
+        // int n = grid.length;
+        // int m = grid[0].length;
+        Queue<Integer> queue = new LinkedList<Integer>();
+        int code = x*n+y;
+        queue.offer(code);//遍历当前这个节点挨着的'1';
+        while(!queue.isEmpty()){
+            code = queue.poll();
+            int i = code/n;
+            int j = code%n;
+            if(i>0&&grid[i-1][j]=='1') {
+                queue.offer((i-1)*n+j);
+                grid[i-1][j]='0';
+            }
+            if(i<m-1&&grid[i+1][j]=='1') {
+                queue.offer((i+1)*n+j);
+                grid[i+1][j]='0';
+            }
+            if(j>0&&grid[i][j-1]=='1'){
+                queue.offer(i*n+j-1);
+                grid[i][j-1]='0';
+            }
+            if(j<n-1&&grid[i][j+1]=='1'){
+                queue.offer(i*n+j+1);
+                grid[i][j+1]='0';
+            }
+        }
+    }
+}
