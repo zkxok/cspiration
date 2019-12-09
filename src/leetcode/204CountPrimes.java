@@ -25,7 +25,7 @@ public class CountPrimes {
             if (notPrime[i] == false) {
                 res++;
                 for (int j = 2; i * j < n; j++) {
-                    notPrime[i * j] = true;
+                    notPrime[i * j] = true;//i * j都是非质数
                 }
             }
         }
