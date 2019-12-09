@@ -44,7 +44,7 @@ public class IsomorphicStrings {
         return true;
     }
 
-
+    //Counting sort更优
     // time : O(n) space : O(1)
     public boolean isIsomorphic2(String s, String t) {
         int[] sChars = new int[256];
