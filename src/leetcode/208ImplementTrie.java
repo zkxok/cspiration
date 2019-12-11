@@ -32,6 +32,7 @@ class Trie {
             node = node.children[j];
         }
         node.isWord = true;
+        //node.word = word;
     }
 
     /** Returns if the word is in the trie. */
@@ -63,7 +64,7 @@ class Trie {
         public TrieNode(){
             children = new TrieNode[26];
             isWord = false;
-            word ="";
+            //word ="";用于记录输出完整单词
         }
     }
 
