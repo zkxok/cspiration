@@ -59,7 +59,7 @@ class Trie {
 
     class TrieNode{
         TrieNode children[];
-        boolean isWord;
+        boolean isWord;//==isEnd
         String word;
         public TrieNode(){
             children = new TrieNode[26];
