@@ -12,12 +12,12 @@ class TrieNode {
 
     TrieNode[] children;
     boolean isWord;//等同于isEnd是否单词结尾，是否到这个位置是一个完整的单词
-    String word;
+    //String word;
 
     public TrieNode() {
         children = new TrieNode[26];
         isWord = false;
-        word = "";
+        //word = "";
     }
 }
 public class AddandSearchWord {
@@ -61,7 +61,7 @@ public class AddandSearchWord {
             node = node.children[j];
         }
         node.isWord = true;
-        node.word = word;
+        //node.word = word;
     }
 
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
@@ -78,7 +78,7 @@ public class AddandSearchWord {
             }
             return false;
         } else {
-            int j = word.charAt(index) - 'a';
+            int j = word.charAt(index) - 'a';//找到该字母的index,每个字母均用index代替表示0-25<==>a-z
             TrieNode temp = node.children[j];
             return temp != null && find(word, temp, index + 1);
         }
