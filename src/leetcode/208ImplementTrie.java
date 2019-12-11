@@ -8,16 +8,14 @@ package leetcode;
  * Date : Sep, 2017
  * Description : TODO
  */
-public class ImplementTrie {
-
+class Trie {
     /**
      * 208. Implement Trie (Prefix Tree)
      */
-
     TrieNode root;
 
     /** Initialize your data structure here. */
-    public ImplementTrie() {
+    public Trie() {
         root = new TrieNode();
     }
 
@@ -57,4 +55,16 @@ public class ImplementTrie {
         }
         return true;
     }
+
+    class TrieNode{
+        TrieNode children[];
+        boolean isWord;
+        String word;
+        public TrieNode(){
+            children = new TrieNode[26];
+            isWord = false;
+            word ="";
+        }
+    }
+
 }
