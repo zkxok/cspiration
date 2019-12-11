@@ -11,7 +11,7 @@ package leetcode;
 class TrieNode {
 
     TrieNode[] children;
-    boolean isWord;
+    boolean isWord;//等同于isEnd是否单词结尾，是否到这个位置是一个完整的单词
     String word;
 
     public TrieNode() {
