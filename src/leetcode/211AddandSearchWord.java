@@ -65,6 +65,7 @@ public class AddandSearchWord {
     }
 
     /** Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter. */
+    //与208不同的是可能含有. , . 可以表示任何一个字母
     public boolean search(String word) {
         return find(word, root, 0);
     }
