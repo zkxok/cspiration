@@ -26,11 +26,12 @@ public class MinimumSizeSubarraySum {
     public int minSubArrayLen(int s, int[] nums) {
         int res = Integer.MAX_VALUE;
         int left = 0, sum = 0;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {//以left开头,i为结尾
             sum += nums[i];
             while (left <= i && sum >= s) {
                 res = Math.min(res, i -left + 1);
-                sum -= nums[left++];
+                sum -= nums[left++];//既然满足了sum>s的要求，那么left右移减少一位子啊看看，
+                //还是否能满足要求,因为要求满足条件的最小长度
             }
         }
         return res == Integer.MAX_VALUE ? 0 : res;
