@@ -72,7 +72,7 @@ public class AddandSearchWord {
 
     public boolean find(String word, TrieNode node, int index) {
         if (index == word.length()) return node.isWord;//!node.word.equals("");
-        if (word.charAt(index) == '.') {
+        if (word.charAt(index) == '.') {//.可以匹配任意字母，除了null
             for (TrieNode temp : node.children) {
                 if (temp != null && find(word, temp, index + 1)) return true;
             }
