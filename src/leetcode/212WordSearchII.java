@@ -196,7 +196,7 @@ class Solution3 {
                 }
                 node = node.children[i];
             }
-            node.word = word;
+            //node.word = word;
             node.isEnd=true;
         }
         return root;
