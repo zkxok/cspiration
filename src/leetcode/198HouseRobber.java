@@ -28,12 +28,12 @@ public class HouseRobber {
      * @return
      */
     public int rob(int[] nums) {
-        int prevNo = 0;
+        int prevNo = 0;//代表之前的房子没偷
         int prevYes = 0;
         for (int num : nums) {
-            int temp = prevNo;
+            int temp = prevNo;//代表之前的房子没偷
             prevNo = Math.max(prevNo, prevYes);
-            prevYes = num + temp;
+            prevYes = num + temp;//当前值+代表之前的房子没偷的值
         }
         return Math.max(prevNo, prevYes);
     }
