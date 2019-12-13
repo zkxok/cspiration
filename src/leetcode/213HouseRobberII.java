@@ -30,4 +30,22 @@ public class HouseRobberII {
         }
         return Math.max(prevNo, prevYes);
     }
+    
+*******************************
+    public int rob(int[] nums) {
+        if(nums.length==1) return nums[0];
+        return Math.max(helper(nums,0,nums.length-2),helper(nums,1,nums.length-1));
+    }
+
+    public int helper(int[] nums,int left,int right){
+        int preNo = 0;
+        int preYes= 0;
+        for(int i=left;i<=right;i++){
+            int temp = preNo;
+            preNo = Math.max(preNo,preYes);
+            preYes = temp+nums[i];
+        }
+        return Math.max(preYes,preNo);
+    }
+
 }
