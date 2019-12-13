@@ -37,7 +37,7 @@ public class ShortestPalindrome {
     public String shortestPalindrome(String s) {
         int i = 0, j = s.length() - 1;
         int end = s.length() - 1;
-        while (i < j) {
+        while (i < j) {//aaaaabcaaaaa,i==j=2时,end=4,end+1=5开始截取到最后为:bcaaaaa
             if (s.charAt(i) == s.charAt(j)) {
                 i++;
                 j--;
@@ -47,6 +47,8 @@ public class ShortestPalindrome {
                 j = end;
             }
         }
+        //s.substring(end + 1).equals("bcaaaaa")->reverse->aaaaacb
         return new StringBuilder(s.substring(end + 1)).reverse().toString() + s;
+        //aaaaacbaaaaabcaaaaa
     }
 }
