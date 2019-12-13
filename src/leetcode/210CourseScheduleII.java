@@ -58,7 +58,7 @@ public class CourseScheduleII {
      * @param prerequisites
      * @return
      */
-    public int[] findres(int numCourses, int[][] prerequisites) {
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
         int[] indegree = new int[numCourses];
         int[] res = new int[numCourses];
         int k = 0;
@@ -85,5 +85,64 @@ public class CourseScheduleII {
             }
         }
         return (k == numCourses) ? res : new int[0];
+    }
+    ***************************************************
+    public int[] findOrder2(int numCourses, int[][] prerequisites) {
+        int res[] = new int[numCourses];
+        int indegree[] = new int[numCourses];
+        //int res = numCourses;
+        for(int[] pair : prerequisites){//遍历到的pair[0]是有入度的,pair[1]是它的先驱节点
+            indegree[pair[0]]++;//计算每门课程的入度
+        }
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for(int i=0;i<indegree.length;i++){
+            if(indegree[i]==0) queue.offer(i);
+        }
+        int index=0;
+        while(!queue.isEmpty()){
+            int pre = queue.poll();//队列里的都是入度为0的节点
+            res[index++]=pre;
+            for(int[] pair:prerequisites){
+                if(pair[1]==pre){
+                    indegree[pair[0]]--;//入度消除
+                    //如果队列中没有了入度为0的节点了,且还有元素没有没有进入过队列,res最后不等于0,那么就是有环,有环就不能完成课程
+                    if(indegree[pair[0]]==0) queue.offer(pair[0]);
+                }
+            }
+        }
+        return index==res.length?res:new int[]{};
+    }
+    
+    
+    *****************************************
+    public int[] findOrder3(int numCourses, int[][] prerequisites) {
+        int res[] = new int[numCourses];
+        int indegree[] = new int[numCourses];
+        for(int[] pair : prerequisites){//遍历到的pair[0]是有入度的,pair[1]是它的先驱节点
+            indegree[pair[0]]++;//计算每门课程的入度
+        }
+        int index=0;
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for(int i=0;i<indegree.length;i++){
+            if(indegree[i]==0) {
+                queue.offer(i);//这里也有入队列的,要么在入队列时加入res,要么在出队列时加入res
+                res[index++]=i;
+            }
+        }
+       
+        while(!queue.isEmpty()){
+            int pre = queue.poll();//队列里的都是入度为0的节点
+            for(int[] pair:prerequisites){
+                if(pair[1]==pre){
+                    indegree[pair[0]]--;//入度消除
+                    //如果队列中没有了入度为0的节点了,且还有元素没有没有进入过队列,res最后不等于0,那么就是有环,有环就不能完成课程
+                    if(indegree[pair[0]]==0){
+                        queue.offer(pair[0]);
+                        res[index++]=pair[0];
+                    } 
+                }
+            }
+        }
+        return index==res.length?res:new int[]{};
     }
 }
