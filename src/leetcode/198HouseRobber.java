@@ -31,7 +31,7 @@ public class HouseRobber {
         int prevNo = 0;//代表之前的房子没偷
         int prevYes = 0;
         for (int num : nums) {
-            int temp = prevNo;//代表之前的房子没偷
+            int temp = prevNo;//代表之前的房子没偷,取temp的原因是preNo会改变
             prevNo = Math.max(prevNo, prevYes);
             prevYes = num + temp;//当前值+代表之前的房子没偷的值
         }
