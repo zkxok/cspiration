@@ -16,6 +16,7 @@ public class ContainsDuplicateII {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (map.containsKey(nums[i])) {
+                //只有存在nums [i] = nums [j],并且 i 和 j 的差的绝对值最大为 k,就满足
                 if ((i - map.get(nums[i])) <= k) {
                     return true;
                 }
