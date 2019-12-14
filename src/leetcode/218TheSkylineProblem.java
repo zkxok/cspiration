@@ -84,8 +84,8 @@ public class TheSkylineProblem {
     
     
     ****************
-    public static List<int[]> getSkyline(int[][] buildings) {
-		List<int[]> res = new ArrayList<>();
+   public List<List<Integer>> getSkyline3(int[][] buildings) {
+		List<List<Integer>> res = new ArrayList<>();
 		List<int[]> heights = new ArrayList<>();
 		for (int[] b : buildings) {
 			heights.add(new int[] { b[0], -b[2] });
@@ -117,51 +117,53 @@ public class TheSkylineProblem {
 			}
 			int cur = pq.peek();
 			if (prev != cur) {
-				res.add(new int[] { h[0], cur });
+				res.add(Arrays.asList(h[0], cur));
+//				res.add(new int[] { h[0], cur });
 				prev = cur;
 			}
 		}
 		return res;
 	}
-
-	public static List<int[]> getSkyline2(int[][] buildings) {
-		List<int[]> res = new ArrayList<>();
-		List<int[]> heights = new ArrayList<>();
-		for (int[] b : buildings) {
-			heights.add(new int[] { b[0], -b[2] });
-			heights.add(new int[] { b[1], b[2] });
-		}
-		// Collections.sort(heights, (a, b) -> (a[0] == b[0]) ? a[1] - b[1] : a[0] - b[0]);
-		Collections.sort(heights, new Comparator<int[]>() {
-
+	
+	
+	
+   public List<List<Integer>> getSkyline4(int[][] buildings) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<int[]> heights = new ArrayList<>();
+        for (int[] b: buildings) {
+            heights.add(new int[]{b[0], - b[2]});
+            heights.add(new int[]{b[1], b[2]});
+        }
+//        Collections.sort(heights, (a, b) -> (a[0] == b[0]) ? a[1] - b[1] : a[0] - b[0]);
+        Collections.sort(heights, new Comparator<int[]>() {
 			@Override
 			public int compare(int[] a, int[] b) {
-				if (a[0] == b[0])
-					return b[1] - a[1];
-				return a[0] - b[0];
+				if(a[0] == b[0]) return a[1] -b[1];
+				else return a[0] - b[0];
 			}
 		});
-		TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder());
-		map.put(0, 1);
-		int prev = 0;
-		for (int[] h : heights) {
-			if (h[1] < 0) {
-				map.put(-h[1], map.getOrDefault(-h[1], 0) + 1);
-			} else {
-				int cnt = map.get(h[1]);
-				if (cnt == 1) {
-					map.remove(h[1]);
-				} else {
-					map.put(h[1], cnt - 1);
-				}
-			}
-			int cur = map.firstKey();
-			if (prev != cur) {
-				res.add(new int[] { h[0], cur });
-				prev = cur;
-			}
-		}
-		return res;
-	}
 
+        TreeMap<Integer, Integer> map = new TreeMap<>(Collections.reverseOrder());
+        map.put(0,1);
+        int prev = 0;
+        for (int[] h: heights) {
+            if (h[1] < 0) {
+                map.put(-h[1], map.getOrDefault(-h[1], 0) + 1);
+            } else {
+                int cnt = map.get(h[1]);
+                if (cnt == 1) {
+                    map.remove(h[1]);
+                } else {
+                    map.put(h[1], cnt - 1);
+                }
+            }
+            int cur = map.firstKey();
+            if (prev != cur) {
+//                res.add(new int[]{h[0], cur});
+				res.add(Arrays.asList(h[0], cur));
+                prev = cur;
+            }
+        }
+        return res;
+    }
 }
