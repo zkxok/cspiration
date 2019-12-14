@@ -79,11 +79,11 @@ public class KthLargestElementinanArray {
 
     public int findKthLargest2(int[] nums, int k) {
         if (nums == null || nums.length == 0) return 0;
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();//优先级队列,从小(队头)到大（队尾）排序
         for (int num : nums) {
             minHeap.offer(num);
-            if (minHeap.size() > k) {
-                minHeap.poll();
+            if (minHeap.size() > k) {//队列里最多只会有k个元素
+                minHeap.poll();//移除小顶堆对头,最小的数
             }
         }
         return minHeap.poll();
