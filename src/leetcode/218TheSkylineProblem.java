@@ -160,7 +160,7 @@ public class TheSkylineProblem {
             int cur = map.firstKey();
             if (prev != cur) {
 //                res.add(new int[]{h[0], cur});
-				res.add(Arrays.asList(h[0], cur));
+		res.add(Arrays.asList(h[0], cur));
                 prev = cur;
             }
         }
