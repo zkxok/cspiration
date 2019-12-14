@@ -54,11 +54,11 @@ public class KthLargestElementinanArray {
             if (nums[l] < pivot && nums[r] > pivot) {
                 swap(nums, l++, r--);
             }
-            if (nums[l] >= pivot) l++;
-            if (nums[r] <= pivot) r--;
+            if (nums[l] >= pivot) l++;//有=
+            if (nums[r] <= pivot) r--;//有=
         }
         swap(nums, left, r);//left和r交换，不和l交换的原因:r指向是>=pivot的数，自然和r交换
-        return r;
+        return r;//返回r索引,r索引的值就是交换后的pivot
     }
 
     private void swap(int[] nums, int i, int j) {
