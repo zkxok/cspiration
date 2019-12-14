@@ -50,7 +50,7 @@ public class KthLargestElementinanArray {
         int pivot = nums[left];
         int l = left + 1;
         int r = right;
-        while (l <= r) {
+        while (l <= r) {//有=，除了left之外，至少还要有1个数
             if (nums[l] < pivot && nums[r] > pivot) {
                 swap(nums, l++, r--);
             }
