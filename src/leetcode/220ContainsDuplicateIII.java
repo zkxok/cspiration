@@ -33,11 +33,9 @@ public class ContainsDuplicateIII {
         for(int i = 0; i < nums.length; i++){
             Long floor = set.floor((long)nums[i] + t);//返回此 set 中小于等于给定元素的最大元素;如果不存在这样的元素，则返回 null
             Long ceil = set.ceiling((long)nums[i] - t);//返回此 set 中大于等于给定元素的最小元素;如果不存在这样的元素，则返回 null
-
             if((floor != null && floor >= nums[i])
                     || (ceil != null && ceil <= nums[i]) )
                 return true;
-
             set.add((long)nums[i]);
             if(i >= k){
                 set.remove((long)nums[i-k]);
