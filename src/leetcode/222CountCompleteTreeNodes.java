@@ -37,7 +37,6 @@ public class CountCompleteTreeNodes {
         // int right = helper(root, false);
         int left = leftDepth(root);
         int right = rightDepth(root);
-
         if (left == right) {
             return (1 << left) - 1;
         } else {
@@ -63,10 +62,10 @@ public class CountCompleteTreeNodes {
         return res;
     }
 
-    private int helper(TreeNode root, boolean isLeft) {
-        if (root == null) return 0;
-        return isLeft ? helper(root.left, isLeft) + 1: helper(root.right, isLeft) + 1;
-    }
+//     private int helper(TreeNode root, boolean isLeft) {
+//         if (root == null) return 0;
+//         return isLeft ? helper(root.left, isLeft) + 1: helper(root.right, isLeft) + 1;
+//     }
     
     ********************
 
