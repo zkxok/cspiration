@@ -53,7 +53,7 @@ public class PalindromeLinkedList {
     }
     
     **************************
-    public boolean isPalindrome(ListNode head) {
+       public boolean isPalindrome(ListNode head) {
 		if (head == null) return true;
 		ListNode middle = findMiddle(head);
 		middle = reverse(middle);
