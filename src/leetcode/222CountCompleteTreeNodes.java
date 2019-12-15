@@ -67,6 +67,8 @@ public class CountCompleteTreeNodes {
         if (root == null) return 0;
         return isLeft ? helper(root.left, isLeft) + 1: helper(root.right, isLeft) + 1;
     }
+    
+    ********************
 
     public int countNodes2(TreeNode root) {
         if (root == null)
@@ -80,6 +82,6 @@ public class CountCompleteTreeNodes {
         }
         if (left == null)
             return (1 << height) - 1;
-        return 1 + countNodes(root.left) + countNodes(root.right);
+        return 1 + countNodes2(root.left) + countNodes2(root.right);
     }
 }
