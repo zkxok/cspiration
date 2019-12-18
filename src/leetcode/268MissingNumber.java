@@ -24,7 +24,7 @@ public class MissingNumber {
      * @param nums
      * @return
      */
-
+    //位运算是最好的方法
     public int missingNumber(int[] nums) {
         int res = nums.length;
         for (int i = 0; i < nums.length; i++) {
@@ -32,7 +32,7 @@ public class MissingNumber {
         }
         return res;
     }
-
+    //等差数列的方法
     public int missingNumber2(int[] nums) {
         int expectedSum = (nums.length + 1) / 2 * nums.length;
         int actualSum = 0;
