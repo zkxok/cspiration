@@ -45,7 +45,7 @@ public class AddDigits {
             sum += num % 10;
             num /= 10;
         }
-        if (sum > 10) {
+        if (sum >= 10) {
             return addDigits1(sum);
         } else {
             return sum;
