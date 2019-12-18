@@ -33,8 +33,8 @@ public class MissingNumber {
         return res;
     }
     //等差数列的方法
-    public int missingNumber2(int[] nums) {
-        int expectedSum = (nums.length + 1) / 2 * nums.length;
+    public int missingNumber(int[] nums) {
+        int expectedSum = nums.length * (nums.length + 1) / 2;
         int actualSum = 0;
         for (int num : nums) {
             actualSum += num;
