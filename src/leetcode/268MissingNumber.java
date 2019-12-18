@@ -34,7 +34,8 @@ public class MissingNumber {
     }
     //等差数列的方法
     public int missingNumber(int[] nums) {
-        int expectedSum = nums.length * (nums.length + 1) / 2;
+        //n = nums.length,下面nums.length + 1的 原因是/2可能少算
+        int expectedSum = nums.length * (nums.length + 1) / 2;//Sn=[n*(a1+an)]/2
         int actualSum = 0;
         for (int num : nums) {
             actualSum += num;
