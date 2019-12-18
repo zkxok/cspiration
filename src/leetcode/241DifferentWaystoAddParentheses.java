@@ -69,4 +69,34 @@ public class DifferentWaystoAddParentheses {
         }
         return res;
     }
+    
+    
+    ********上文加注释****************
+    public List<Integer> diffWaysToCompute(String input) {
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+            if (c == '-' || c == '+' || c == '*') {
+                String a = input.substring(0, i);//这里的截取就是相当于括号的作用了,将数字划分为两个部分
+                String b = input.substring(i + 1);
+                List<Integer> al = diffWaysToCompute(a);//数字a的集合,为什么是集合?因为数字a还可能继续划分多种情况,产生多种可能
+                List<Integer> bl = diffWaysToCompute(b);//数字b的集合
+                for (int x : al) {
+                    for (int y : bl) {
+                        if (c == '-') {
+                            res.add(x - y);
+                        } else if (c == '+') {
+                            res.add(x + y);
+                        } else if (c == '*') {
+                            res.add(x * y);
+                        }
+                    }
+                }
+            }
+        }
+        if (res.size() == 0) {//没有运算符，只有数字,递归的时候，会递归到只有一个数字,res为空,需要把数字加进集合
+            res.add(Integer.valueOf(input));
+        }
+        return res;
+    }
 }
