@@ -33,7 +33,8 @@ public class ValidAnagram {
         Arrays.sort(str2);
         return Arrays.equals(str1, str2);
     }
-
+    
+    //CountingSort，必须会
     //time : O(n) space : O(1)
     public boolean isAnagram2(String s, String t) {
         if (s.length() != t.length()) {
