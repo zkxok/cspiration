@@ -22,11 +22,11 @@ public class HIndex {
     // time : O(nlogn) space : O(1)
     public int hIndex(int[] citations) {
         Arrays.sort(citations);
-        int res = 0;
-        while (res < citations.length && citations[citations.length - 1 - res] > res) {
+        int res = 0;//res篇文章
+        while (res < citations.length && citations[citations.length - 1 - res] > res) {//倒着遍历
             res++;
         }
-        return res;
+        return res;//引用res次的文章有res篇
     }
 
     // time : O(n) space : O(n)
