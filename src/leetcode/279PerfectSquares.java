@@ -17,7 +17,7 @@ public class PerfectSquares {
      * which sum to n.
 
      For example, given n = 12, return 3 because 12 = 4 + 4 + 4; given n = 13, return 2 because 13 = 4 + 9.
-
+        动态规划
      time : O(n * sqrt(n))
      space: O(n)
 
