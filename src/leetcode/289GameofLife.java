@@ -41,11 +41,12 @@ public class GameofLife {
                 int count = countNeighbor(board, i, j);
                 if (board[i][j] == 1) {//自己是活细胞
                     if (count == 2 || count == 3) {
-                        board[i][j] += 2;
+                        board[i][j] += 2;//活->活
                     }
                 } else if (count == 3) {//自己是死细胞，且死细胞周围有3个1(活细胞)
-                    board[i][j] += 2;
+                    board[i][j] += 2;//死->活
                 }
+                //其他的活->死,死->死，都不用管
             }
         }
         for (int i = 0; i < m; i++) {
