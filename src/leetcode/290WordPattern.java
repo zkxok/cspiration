@@ -29,24 +29,20 @@ public class WordPattern {
      * @return
      */
     public boolean wordPattern(String pattern, String str) {
-       String[] arr = str.split(" ");
-       if (arr.length != pattern.length()) {
-           return false;
-       }
-       HashMap<Character, String> map = new HashMap<>();
-       for (int i = 0; i < arr.length; i++) {
-           char c = pattern.charAt(i);
-           if (map.containsKey(c)) {
-               if (!map.get(c).equals(arr[i])) {
-                   return false;
-               } else {
-                   if (map.containsValue(arr[i])) {
-                       return false;
-                   }
-                   map.put(c, arr[i]);
-               }
-           }
-       }
-       return true;
-    }
+		String arr[] = str.split(" ");
+		if (arr.length != pattern.length()) return false;
+		HashMap<Character, String> map = new HashMap<Character, String>();
+		for (int i = 0; i < arr.length; i++) {
+			char c = pattern.charAt(i);
+			if (map.containsKey(c)) {
+				if (!map.get(c).equals(arr[i])) return false;
+			} else {
+				// "abba"
+				// "dog dog dog dog"
+				if (map.containsValue(arr[i])) return false;
+				map.put(c, arr[i]);
+			}
+		}
+		return true;
+	}
 }
