@@ -35,4 +35,8 @@ public class NimGame {
     public boolean canWinNim(int n) {
         return n % 4 != 0;
     }
+    
+    public boolean canWinNim2(int n) {
+        return (n&3)!=0;
+    }
 }
