@@ -44,7 +44,7 @@ public class FindtheDuplicateNumber {
         }
         return min;
     }
-    
+    //题解:https://www.cnblogs.com/grandyang/p/4843654.html
     public int findDuplicate(int[] nums) {//n+1个数[1,n]
         int left = 1, right = nums.length;//n+1
         while (left < right){//至少两个数
