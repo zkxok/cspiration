@@ -28,11 +28,11 @@ public class FindtheDuplicateNumber {
     public int findDuplicate(int[] nums) {
         int min = 0;
         int max = nums.length - 1;
-        while (min <= max) {
+        while (min <= max) {//至少一个数
             int mid = (max - min) / 2 + min;
             int count = 0;
             for (int i = 0; i < nums.length; i++) {
-                if (nums[i] <= mid) {
+                if (nums[i] <= mid) {//计算小于等于mid的个数
                     count++;
                 }
             }
@@ -43,6 +43,19 @@ public class FindtheDuplicateNumber {
             }
         }
         return min;
+    }
+    
+    public int findDuplicate(int[] nums) {//n+1个数[1,n]
+        int left = 1, right = nums.length;//n+1
+        while (left < right){//至少两个数
+            int mid = left + (right - left) / 2, cnt = 0;
+            for (int num : nums) {
+                if (num <= mid) ++cnt;
+            }
+            if (cnt <= mid) left = mid + 1;
+            else right = mid;
+        }    
+        return right;//返回left也一样
     }
 
     // time : O(n) space : O(1)
