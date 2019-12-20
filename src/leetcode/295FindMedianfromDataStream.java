@@ -58,7 +58,7 @@ public class MedianFinder {
 	public double findMedian() {
 		if ((count & 1) == 0) {// 数据流是偶数个数
 			// 如果两个堆合起来的元素个数是偶数，数据流的中位数就是各自堆顶元素的平均值
-			return (double) (maxheap.peek() + minheap.peek()) / 2;
+			return (double) (maxheap.peek() + minheap.peek()) / 2;//等先转double之后再/2
 		} else {// 数据流是奇数个数
 			// 如果两个堆合起来的元素个数是奇数，数据流的中位数大顶堆的堆顶元素
 			return (double) maxheap.peek();
