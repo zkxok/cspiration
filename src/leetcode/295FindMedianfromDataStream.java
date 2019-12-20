@@ -40,6 +40,7 @@ public class MedianFinder {
 	 */
 	public MedianFinder() {
 		count = 0;
+		//大顶堆的最大值<=小顶堆的最大值;且大顶堆元素个数==小顶堆元素个数，或者==小顶堆元素个数+1
 		maxheap = new PriorityQueue<>((x, y) -> y - x);
 		minheap = new PriorityQueue<>();// 默认小顶堆，从队头到队尾(小->大)
 	}
