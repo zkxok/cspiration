@@ -24,7 +24,14 @@ public class GameofLife {
 
      * @param board
      */
-
+    1. 如果活细胞周围八个位置的活细胞数少于两个，则该位置活细胞死亡
+    2. 如果活细胞周围八个位置有两个或三个活细胞，则该位置活细胞仍然存活
+    3. 如果活细胞周围八个位置有超过三个活细胞，则该位置活细胞死亡
+    4. 如果死细胞周围正好有三个活细胞，则该位置死细胞复活
+     状态0： 死细胞转为死细胞
+     状态1： 活细胞转为活细胞
+     状态2： 活细胞转为死细胞
+     状态3： 死细胞转为活细胞
     public void gameOfLife(int[][] board) {
         if (board == null || board.length == 0) return;
         int m = board.length;
