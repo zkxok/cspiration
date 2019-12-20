@@ -24,6 +24,7 @@ public class GameofLife {
 
      * @param board
      */
+    https://www.cnblogs.com/grandyang/p/4854466.html
     1. 如果活细胞周围八个位置的活细胞数少于两个，则该位置活细胞死亡
     2. 如果活细胞周围八个位置有两个或三个活细胞，则该位置活细胞仍然存活
     3. 如果活细胞周围八个位置有超过三个活细胞，则该位置活细胞死亡
