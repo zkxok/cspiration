@@ -29,7 +29,8 @@ public class MedianFinder {
      time : O(logn)
      space : O(n)
      */
-
+	
+    //题解:https://leetcode-cn.com/problems/find-median-from-data-stream/solution/you-xian-dui-lie-python-dai-ma-java-dai-ma-by-liwe/
 	private int count;
 	private PriorityQueue<Integer> maxheap;// 大顶堆,队头最大
 	private PriorityQueue<Integer> minheap;// 小顶堆,队头最小
