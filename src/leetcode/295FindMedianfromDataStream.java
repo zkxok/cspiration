@@ -10,7 +10,7 @@ import java.util.PriorityQueue;
  * Date : Nov, 2017
  * Description : 295. Find Median from Data Stream
  */
-public class FindMedianfromDataStream {
+public class MedianFinder {
     /**
      * For example:
 
@@ -30,23 +30,36 @@ public class FindMedianfromDataStream {
      space : O(n)
      */
 
-    private PriorityQueue<Long> small;
-    private PriorityQueue<Long> large;
+    private int count;
+	private PriorityQueue<Integer> maxheap;// 大顶堆,队头最大
+	private PriorityQueue<Integer> minheap;// 小顶堆,队头最小
 
-    public FindMedianfromDataStream() {  // MedianFinder()
-        small = new PriorityQueue<>();
-        large = new PriorityQueue<>();
-    }
+	/**
+	 * initialize your data structure here.
+	 */
+	public MedianFinder() {
+		count = 0;
+		maxheap = new PriorityQueue<>((x, y) -> y - x);
+		minheap = new PriorityQueue<>();// 默认小顶堆，从队头到队尾(小->大)
+	}
 
-    public void addNum(int num) {
-        large.add((long)num);
-        small.add(-large.poll());
-        if (large.size() < small.size()) {
-            large.add(-small.poll());
-        }
-    }
+	public void addNum(int num) {
+		count += 1;
+		maxheap.offer(num);
+		minheap.offer(maxheap.poll());// add也可以
+		// 如果两个堆合起来的元素个数是奇数，小顶堆要拿出堆顶元素给大顶堆
+		if ((count & 1) != 0) {// 数据流个数加1后变成奇数个数,大顶堆的元素个数应该>小顶堆，此时大顶堆元素个数应该增加，然后变成奇数个数
+			maxheap.offer(minheap.poll());// add也可以
+		}
+	}
 
-    public double findMedian() {
-        return large.size() > small.size() ? large.peek() : (large.peek() - small.peek()) / 2;
-    }
+	public double findMedian() {
+		if ((count & 1) == 0) {// 数据流是偶数个数
+			// 如果两个堆合起来的元素个数是偶数，数据流的中位数就是各自堆顶元素的平均值
+			return (double) (maxheap.peek() + minheap.peek()) / 2;
+		} else {// 数据流是奇数个数
+			// 如果两个堆合起来的元素个数是奇数，数据流的中位数大顶堆的堆顶元素
+			return (double) maxheap.peek();
+		}
+	}
 }
