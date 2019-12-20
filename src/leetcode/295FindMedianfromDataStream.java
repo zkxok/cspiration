@@ -30,7 +30,7 @@ public class MedianFinder {
      space : O(n)
      */
 
-    private int count;
+	private int count;
 	private PriorityQueue<Integer> maxheap;// 大顶堆,队头最大
 	private PriorityQueue<Integer> minheap;// 小顶堆,队头最小
 
