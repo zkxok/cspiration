@@ -32,11 +32,11 @@ public class GameofLife {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 int count = countNeighbor(board, i, j);
-                if (board[i][j] == 1) {
+                if (board[i][j] == 1) {//自己是活细胞
                     if (count == 2 || count == 3) {
                         board[i][j] += 2;
                     }
-                } else if (count == 3) {
+                } else if (count == 3) {//自己是死细胞，且死细胞周围有3个1(活细胞)
                     board[i][j] += 2;
                 }
             }
@@ -47,12 +47,12 @@ public class GameofLife {
             }
         }
     }
-
+    //计算(i,j)坐标周围1的个数(存活细胞的个数）
     private int countNeighbor(int[][] board, int i, int j) {
         int count = 0;
-        for (int row = Math.max(0, i - 1); row <= Math.min(i + 1, board.length - 1); row++) {
+        for (int row = Math.max(0, i - 1); row <= Math.min(i + 1, board.length - 1); row++) {//避免越界
             for (int col = Math.max(0, j - 1); col <= Math.min(j + 1, board[0].length - 1); col++) {
-                if (row == i && col == j) continue;
+                if (row == i && col == j) continue;//遍历到自己,不计入
                 if ((board[row][col] & 1) == 1) count++;
             }
         }
