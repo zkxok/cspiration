@@ -58,7 +58,10 @@ public class LongestIncreasingSubsequence {
         }
         return res;
     }
-    
+	
+     //题解:https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
+     //动态规划
+    //Time:O(N^2）,Space:O(n)
       public int lengthOfLIS2(int[] nums) {
 		if (nums.length == 0) return 0;
 		int[] dp = new int[nums.length];
