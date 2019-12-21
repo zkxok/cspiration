@@ -54,8 +54,46 @@ public class LongestIncreasingSubsequence {
                 }
             }
             tails[i] = num;
-            if (i == res) ++res;
+            if (i == res) res++;
         }
         return res;
+    }
+    
+    
+    public int lengthOfLIS2(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0;
+        for (int num : nums) {
+        	//用二分查找法在 dp 数组找第一个不小于num的数字
+            int i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) {//没找到
+                i = -(i + 1);
+            }
+            dp[i] = num;//找到就覆盖它,如果这个数字不存在，那么直接在 dp 数组后面加上遍历到的数字
+            if (i == len) {
+                len++;
+            }
+        }
+        return len;
+    }
+	
+    //动态规划+二分查找（Time: O(NlogN), Space:O(N)）
+	//https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
+	//https://www.cnblogs.com/grandyang/p/4938187.html
+	public int lengthOfLIS2(int[] nums) {
+        int[] tails = new int[nums.length];
+        int res = 0;
+        for(int num : nums) {
+            int i = 0, j = res;//i相当于start,j相当于end,num相当于target
+            //用二分查找法在 dp 数组找第一个不小于(大于等于)num的数字
+            while(i < j) {//至少两个数
+                int mid = (i + j) / 2;
+                if(tails[mid] < num) i = mid + 1;
+                else j = mid;
+            }
+            tails[i] = num;//第一次,0位置就直接赋值了,这里tails[i]或者tails[j]都是一样的
+            if(res == i) res++;//只有二分找到的这个i或者j,是dp数组的最后一个元素(也就是没找到大于等于num的元素,那么数组长度会增加),这里i或j都一样
+        }
+        return res;//最后返回 dp 数组的元素个数即可,
     }
 }
