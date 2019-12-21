@@ -59,8 +59,22 @@ public class LongestIncreasingSubsequence {
         return res;
     }
     
-    
-    public int lengthOfLIS2(int[] nums) {
+      public int lengthOfLIS2(int[] nums) {
+		if (nums.length == 0) return 0;
+		int[] dp = new int[nums.length];
+		int res = 0;
+		Arrays.fill(dp, 1);
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = 0; j < i; j++) {
+				if (nums[i] > nums[j]) dp[i] = Math.max(dp[i], dp[j] + 1);
+			}
+			res = Math.max(res, dp[i]);
+		}
+		return res;
+	}
+	
+	
+    public int lengthOfLIS3(int[] nums) {
         int[] dp = new int[nums.length];
         int len = 0;
         for (int num : nums) {
@@ -76,11 +90,11 @@ public class LongestIncreasingSubsequence {
         }
         return len;
     }
-	
-    //动态规划+二分查找（Time: O(NlogN), Space:O(N)）
-	//https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
+	*************最优的方法***********
+        //动态规划+二分查找（Time: O(NlogN), Space:O(N)）
+	//题解:https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
 	//https://www.cnblogs.com/grandyang/p/4938187.html
-	public int lengthOfLIS2(int[] nums) {
+	public int lengthOfLIS4(int[] nums) {
         int[] tails = new int[nums.length];
         int res = 0;
         for(int num : nums) {
