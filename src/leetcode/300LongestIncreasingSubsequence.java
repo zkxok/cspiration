@@ -97,7 +97,7 @@ public class LongestIncreasingSubsequence {
         //动态规划+二分查找（Time: O(NlogN), Space:O(N)）
 	//题解:https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/
 	//https://www.cnblogs.com/grandyang/p/4938187.html
-	public int lengthOfLIS4(int[] nums) {
+    public int lengthOfLIS4(int[] nums) {
         int[] tails = new int[nums.length];
         int res = 0;
         for(int num : nums) {
