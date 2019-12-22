@@ -44,4 +44,24 @@ public class BinaryTreePostorderTraversal {
         }
         return res;
     }
+    
+    
+    **双栈法，如果要求直接输出，不是返回List<Integer> ,可以用上***
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if(root==null) return res;
+        Stack<TreeNode> stack = new Stack();
+        Stack<TreeNode> stack2 = new Stack();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            if(cur.left!=null) stack.push(cur.left);
+            if(cur.right!=null) stack.push(cur.right);
+            stack2.push(cur);
+        }
+        while(!stack2.isEmpty()){
+            res.add(stack2.pop().val);
+        }
+        return res;
+    }
 }
