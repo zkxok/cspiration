@@ -35,7 +35,7 @@ public class BinaryTreeInorderTraversal {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode cur = root;//注意中序遍历进入循环前是没有入栈操作的
+        TreeNode cur = root;//注意中序遍历进入循环前是没有入栈操作的,它需要不断的顺着根节点找下面的节点，所以首先根节点不能为空
         while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
                 stack.push(cur);
