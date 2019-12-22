@@ -33,6 +33,7 @@ public class SwapNodesinPairs {
             l1.next = l2.next;
             l2.next.next = l2;
             l2.next = nextStart;
+            //向后移动指针
             l1 = l2;
             l2 = l2.next;
         }
