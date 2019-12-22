@@ -41,9 +41,9 @@ public class BinaryTreeInorderTraversal {
                 stack.push(cur);
                 cur = cur.left;
             }
-            cur = stack.pop();
+            cur = stack.pop();//1
             res.add(cur.val);
-            cur = cur.right;
+            cur = cur.right;//当某个节点的右子节点为null后,那么需要从栈中弹出新的节点继续遍历(1处),所以||stack!=null，当cur==null且栈空,说明中序遍历结束
         }
         return res;
     }
