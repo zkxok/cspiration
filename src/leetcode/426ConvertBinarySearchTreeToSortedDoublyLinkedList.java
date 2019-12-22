@@ -20,11 +20,11 @@ class Node {
 */
 public class Solution {
 	// 与剑指offer27题，唯一区别就是，剑指offer不需要成环，这里成环了
-	Node first = null;// realHead
+	Node first = null;// realHead/head
 	Node last = null;// tail
 
 	public Node treeToDoublyList(Node root) {
-		if (root == null) return root;
+		if (root == null) return root;//这里和剑指offer27题 不同的是，这里必须判空，否则会导致空指针
 		helper(root);
 		// 连接首尾元素,形成一个环
 		last.right = first;
