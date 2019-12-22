@@ -40,7 +40,7 @@ public class BinaryTreePostorderTraversal {
             res.addFirst(cur.val);
             if (cur.left != null) stack.push(cur.left);//左
             if (cur.right != null) stack.push(cur.right);//右
-            //res.addFirst(cur.val);放在这里也一样//根
+            //res.addFirst(cur.val);放在这里也一样,其实它就是模拟了栈的功能//根
         }
         return res;
     }
