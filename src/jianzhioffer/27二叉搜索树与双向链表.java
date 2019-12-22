@@ -44,10 +44,8 @@ public class Solution {
 	}
 ******************
 	protected Node leftLast = null;
-
 	public Node Convert2(Node root) {
-		if (root == null)
-			return null;
+		if (root == null) return null;
 		if (root.left == null && root.right == null) {
 			leftLast = root;// 最后的一个节点可能为最右侧的叶节点
 			return root;
