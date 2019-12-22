@@ -42,7 +42,7 @@ public class Solution {
 		}
 		helper(root.right);// 右
 	}
-
+******************
 	protected Node leftLast = null;
 
 	public Node Convert2(Node root) {
