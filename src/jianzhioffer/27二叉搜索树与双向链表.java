@@ -28,8 +28,7 @@ public class Solution {
 	}
 
 	private void helper(Node root) {
-		if (root == null)
-			return;
+		if (root == null) return;
 		helper(root.left);// 左
 		if (head == null) {// 根
 			head = root;
