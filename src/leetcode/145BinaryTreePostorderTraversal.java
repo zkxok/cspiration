@@ -38,8 +38,9 @@ public class BinaryTreePostorderTraversal {
         while (!stack.isEmpty()) {
             TreeNode cur = stack.pop();
             res.addFirst(cur.val);
-            if (cur.left != null) stack.push(cur.left);
-            if (cur.right != null) stack.push(cur.right);
+            if (cur.left != null) stack.push(cur.left);//左
+            if (cur.right != null) stack.push(cur.right);//右
+            //res.addFirst(cur.val);放在这里也一样//根
         }
         return res;
     }
