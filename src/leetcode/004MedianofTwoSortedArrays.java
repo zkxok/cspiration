@@ -28,6 +28,7 @@ public class MedianofTwoSortedArrays {
 
 
      O(log(min(m,n)))
+     题解:https://www.bilibili.com/video/av62872193?from=search&seid=228840549916769309
 
      参考博客：http://blog.csdn.net/chen_xinjia/article/details/69258706
 
