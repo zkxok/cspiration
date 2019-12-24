@@ -29,9 +29,9 @@ public class MergekSortedLists {
     public ListNode sort(ListNode[] lists, int lo, int hi) {
         if (lo >= hi) return lists[lo];
         int mid = (hi - lo) / 2 + lo;
-        ListNode l1 = sort(lists, lo, mid);
-        ListNode l2 = sort(lists, mid + 1, hi);
-        return merge(l1, l2);
+        ListNode l1 = sort(lists, lo, mid);//递归左边
+        ListNode l2 = sort(lists, mid + 1, hi);//递归右边
+        return merge(l1, l2);//合并l1和l2
     }
 
     public ListNode merge(ListNode l1, ListNode l2) {
