@@ -72,6 +72,7 @@ public class MergekSortedLists {
     //***************上面的注释版**************
     public ListNode mergeKLists3(ListNode[] lists) {
 		if (lists == null || lists.length == 0) return null;
+	        //lists.length是队列元素的容量
 		PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
 		ListNode dummy = new ListNode(0);
 		ListNode cur = dummy;
