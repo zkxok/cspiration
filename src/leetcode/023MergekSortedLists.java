@@ -52,7 +52,7 @@ public class MergekSortedLists {
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
 
-        for (ListNode list : lists) {
+        for (ListNode list : lists) {//遍历链表数组，把每个链表的头结点加入最小堆
             if (list != null) {
                 queue.add(list);
             }
