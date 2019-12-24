@@ -34,7 +34,7 @@ public class ReverseNodesinkGroup {
             cur = cur.next;
             count++;
         }
-        if (count == k) {
+        if (count == k) {//count==k时，才翻转，不等于k时就顺序不变
             cur = reverseKGroup(cur, k);
             while (count-- > 0) {
                 ListNode temp = head.next;
