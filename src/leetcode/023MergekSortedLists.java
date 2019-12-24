@@ -13,6 +13,7 @@ import java.util.PriorityQueue;
  */
 public class MergekSortedLists {
     /**
+   题解: https://leetcode-cn.com/problems/merge-k-sorted-lists/solution/he-bing-kge-pai-xu-lian-biao-by-leetcode/
      *(k 是链表的数目,我们可以在 O(n) 的时间内合并两个有序链表，其中 n 是两个链表中的总节点数)
      time : O(nlogk) where k is the number of linked lists
      space : O(n) 
