@@ -66,4 +66,29 @@ public class MergekSortedLists {
         }
         return dummy.next;
     }
+    
+    
+    
+    //***************上面的注释版**************
+    public ListNode mergeKLists3(ListNode[] lists) {
+		if (lists == null || lists.length == 0) return null;
+		PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
+		ListNode dummy = new ListNode(0);
+		ListNode cur = dummy;
+		for (ListNode head : lists) {// 遍历链表数组，把每个链表的头结点加入最小堆
+			if (head != null) {
+				queue.offer(head);
+			}
+		}
+		while (!queue.isEmpty()) {
+			// dummy,1,2,3,
+			// cur =dummy,这里cur.next才是合并数组的首位1,它已经被合并了
+			cur.next = queue.poll();// 合并后队列的首元素等于队头元素
+			cur = cur.next;// 然后这里cur相同于上面的cur.next=1,1已经加入队列了
+			if (cur.next != null) {// 这里需要把1的下一位2也加入队列
+				queue.offer(cur.next);
+			}
+		}
+		return dummy.next;
+	}
 }
