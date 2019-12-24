@@ -31,6 +31,7 @@ public class MergekSortedLists {
         int mid = (hi - lo) / 2 + lo;
         ListNode l1 = sort(lists, lo, mid);//递归左边
         ListNode l2 = sort(lists, mid + 1, hi);//递归右边
+	//左右分别递归到只有一个节点，然后合并
         return merge(l1, l2);//合并l1和l2
     }
 
