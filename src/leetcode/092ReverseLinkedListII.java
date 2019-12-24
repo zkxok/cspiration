@@ -36,9 +36,10 @@ public class ReverseLinkedListII {
             cur = cur.next;
             pre = pre.next;
         }
+        //()里的部分要看成一个整体来进行交换
         //1->2->3->4->5->NULL, m = 2, n = 4;---> dummy->1->(3->2)->4->5 ;--->dummy->1->[4->(3->2)]->5
         for (int i = 0; i < n - m; i++) {//遍历n-m次
-            ListNode temp = cur.next;
+            ListNode temp = cur.next;//cur要和temp交换位置(反转)
             cur.next = temp.next;
             temp.next = pre.next;
             pre.next = temp;
