@@ -117,8 +117,8 @@ public class MedianofTwoSortedArrays {
 		int cut1 = 0;//数组1的切割位mid
 		int cut2 = 0;//数组2的切割位
 		//因为需要进行二分查找
-		int cutL = 0;//数组1的start
-		int cutR = nums1.length;//数组1的end
+		int cutL = 0;//数组1切割后的start
+		int cutR = nums1.length;//数组1切割后的end
 		while (cut1 <= nums1.length) {
 			cut1 = (cutR - cutL) / 2 + cutL;//对数组1进行二分查找，每次从二分的中间位置cut1开始切割
 			cut2 = len / 2 - cut1;//根据数组1的切割位置cut1,来计算数组2的切割位置cut2
