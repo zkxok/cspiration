@@ -32,11 +32,12 @@ public class ReverseLinkedListII {
         dummy.next = head;
         ListNode pre = dummy;
         ListNode cur = dummy.next;
-        for (int i = 1; i < m; i++) {
+        for (int i = 1; i < m; i++) {//遍历m-1次，因为要记录m位置前的指针位置
             cur = cur.next;
             pre = pre.next;
         }
-        for (int i = 0; i < n - m; i++) {
+        //1->2->3->4->5->NULL, m = 2, n = 4;---> dummy->1->(3->2)->4->5 ;--->dummy->1->[4->(3->2)]->5
+        for (int i = 0; i < n - m; i++) {//遍历n-m次
             ListNode temp = cur.next;
             cur.next = temp.next;
             temp.next = pre.next;
