@@ -21,6 +21,7 @@ public class MergekSortedLists {
      * @param lists
      * @return
      */
+    //分而治之,链表两两合并
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         return sort(lists, 0, lists.length - 1);
@@ -67,9 +68,7 @@ public class MergekSortedLists {
         }
         return dummy.next;
     }
-    
-    
-    
+     
     //***************上面的注释版**************
     public ListNode mergeKLists3(ListNode[] lists) {
 	if (lists == null || lists.length == 0) return null;
@@ -92,5 +91,5 @@ public class MergekSortedLists {
 		}
 	}
 	return dummy.next;
-}
+    }
 }
