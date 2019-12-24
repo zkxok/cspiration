@@ -109,7 +109,7 @@ public class MedianofTwoSortedArrays {
     
     
     **********上面的方案加注释版*******************
-	public double findMedianSortedArrays3(int[] nums1, int[] nums2) {
+	public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
 		if (nums1.length > nums2.length) {//保证nums1的长度一定是小于等于nums2的长度的
 			return findMedianSortedArrays(nums2, nums1);
 		}
