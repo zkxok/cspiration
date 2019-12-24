@@ -65,4 +65,15 @@ public class MajorityElement {
         return res;
     }
 
+    //上面的简洁写法
+    public int majorityElement(int[] nums) {
+        int count =0;
+        int res = Integer.MAX_VALUE;
+        for(int num:nums){
+            if(count==0) res = num;
+            if(num!=res) count--;
+            else count++;
+        }
+        return res;
+    }
 }
