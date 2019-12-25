@@ -1,4 +1,4 @@
-public class MyCircularDeque {// MyCircularDeque
+public class MyCircularDeque {// MyCircularDeque设计循环双端队列(就是可以两头加入元素)
 
 	// 1、不用设计成动态数组，使用静态数组即可
 	// 2、设计 head 和 tail 指针变量
