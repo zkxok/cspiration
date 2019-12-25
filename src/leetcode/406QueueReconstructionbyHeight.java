@@ -23,9 +23,9 @@ public class QueueReconstructionbyHeight {
         for(int[] cur : people){
             // 小的元素后插入，如果它的插入索引已经有了其他大的元素，插入到这个大元素前面，并不会影响大元素的k值
 	    // 所以前面排序的时候要先把身高高的排前面，然后身高不等按照k值(在他前面比他高的人)排序,这个k值就是索引
-            res.add(cur[1],cur);// cur[1]是cur插入数组的位置索引
+            res.add(cur[1],cur);// cur[1]是cur插入数组的位置索引，这里这里这2个参数是加入的cur数组
         }
-
-        return res.toArray(new int[people.length][]);
+        //return res.toArray(new int[people.length][2]);返回这个也行
+        return res.toArray(new int[people.length][]); //  List<int[]>转二维数组
     }
 }
