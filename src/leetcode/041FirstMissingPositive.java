@@ -42,6 +42,7 @@ public class FirstMissingPositive {
                 return i + 1;
             }
         }
+        //如输入[1,2,3,4]，此时返回数组长度+1;
         return nums.length + 1;
     }
 }
