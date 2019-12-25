@@ -57,6 +57,7 @@ public class SearchinRotatedSortedArray {
 		if (nums == null || nums.length == 0) return -1;
 		int start = 0;
 		int end = nums.length - 1;
+	        //不能有=,否则只有两个元素的时候，会死循环,下面3个if判断永远都不会满足
 		while (start + 1 < end) {//至少3个数参与,如果1个数或者2个数，不用这么麻烦
 			int mid = (end - start) / 2 + start;
 			if (nums[mid] == target) {
