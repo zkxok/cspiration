@@ -28,6 +28,7 @@ public class FirstMissingPositive {
         if (nums == null || nums.length == 0) return 1;
         for (int i = 0; i < nums.length; i++) {
             //不是排序,小于等于0的数不能参与排序
+            //如果正常nums[nums[i] - 1]应该等于nums[i],当前nums[i]的值本应该在索引为(nums[i] - 1)的位置,如果不在，那就将它交换到那个位置
             while (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] != nums[i]) {
                 int temp = nums[nums[i] - 1];
                 nums[nums[i] - 1] = nums[i];
