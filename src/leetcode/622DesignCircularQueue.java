@@ -1,4 +1,4 @@
-
+//题解(写的非常好):https://leetcode-cn.com/problems/design-circular-queue/
 public class MyCircularQueue {
 
 	private int front;//指向队列头部第 1 个有效数据的位置；
