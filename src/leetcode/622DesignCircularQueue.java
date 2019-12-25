@@ -1,5 +1,5 @@
 //题解(写的非常好):https://leetcode-cn.com/problems/design-circular-queue/
-public class MyCircularQueue {
+public class MyCircularQueue {//美团面试考过这题，没写出来
 
 	private int front;//指向队列头部第 1 个有效数据的位置；
 	private int rear;//指向队列尾部（即最后 1 个有效数据）的下一个位置，即下一个从队尾入队元素的位置。(注意它不是指向队尾元素，而是队尾元素的下一个位置)
