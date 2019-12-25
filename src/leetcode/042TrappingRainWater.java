@@ -30,6 +30,7 @@ public class TrappingRainWater {
      * @return
      */
     //例:[0,1,0,2,1,0,1,3,2,1,2,1]
+    //题解:https://leetcode-cn.com/problems/trapping-rain-water/solution/jie-yu-shui-by-leetcode/
     public int trap(int[] height) {
         int left = 0;
         int right = height.length - 1;
