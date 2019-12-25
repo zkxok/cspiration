@@ -30,7 +30,7 @@ public class FirstMissingPositive {
             //不是排序,小于等于0的数不能参与排序
             //如果正常nums[nums[i] - 1]应该等于nums[i],当前nums[i]的值本应该在索引为(nums[i] - 1)的位置,如果不在，那就将它交换到那个位置
             //这里是while,不是if,还有nums[nums[i] - 1] != nums[i]不能写成nums[i] - 1!=i,如果这样写输入[1,1],nums[i] - 1!=i,这个条件将永远满足
-            //会陷入死循环
+            //会陷入死循环,如果while改成if就不会死循环，但是这样就不能得出正确的解
             while (nums[i] > 0 && nums[i] <= nums.length && nums[nums[i] - 1] != nums[i]) {
                 int temp = nums[nums[i] - 1];
                 nums[nums[i] - 1] = nums[i];
