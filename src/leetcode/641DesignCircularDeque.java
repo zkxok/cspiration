@@ -1,5 +1,5 @@
 public class MyCircularDeque {// MyCircularDeque设计循环双端队列(就是可以两头加入元素)
-
+//题解(与622题几乎一样):https://leetcode-cn.com/problems/design-circular-deque/solution/shu-zu-shi-xian-de-xun-huan-shuang-duan-dui-lie-by/
 	// 1、不用设计成动态数组，使用静态数组即可
 	// 2、设计 head 和 tail 指针变量
 	// 3、head == tail 成立的时候表示队列为空
