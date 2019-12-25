@@ -39,7 +39,7 @@ public class GenerateParentheses {
     }
     //left:左括号个数，right:右括号个数
     public static void helper(List<String> res, String s, int left, int right) {
-        if (left > right) {
+        if (left > right) {//left括号剩的个数>right括号剩的个数，那么这就不合法
             return;
         }
         if (left == 0 && right == 0) {
