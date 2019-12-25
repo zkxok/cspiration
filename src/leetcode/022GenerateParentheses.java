@@ -37,6 +37,7 @@ public class GenerateParentheses {
         helper(res, "", n, n);
         return res;
     }
+    //left:左括号个数，right:右括号个数
     public static void helper(List<String> res, String s, int left, int right) {
         if (left > right) {
             return;
