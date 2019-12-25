@@ -24,8 +24,8 @@ public class ImplementStackusingQueues {
 
     /** Push element x onto stack. */
     public void push(int x) {
-        queue.add(x);
-        for (int i = 0; i < queue.size() - 1; i++) {
+        queue.add(x);//这个要在前
+        for (int i = 0; i < queue.size() - 1; i++) {//注意这里是queue.size() - 1次，新加进来的元素不应该算在内，进行逆转
             queue.add(queue.poll());
         }
     }
