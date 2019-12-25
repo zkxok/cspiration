@@ -36,9 +36,9 @@ public class TrappingRainWater {
         int leftMax = 0;
         int rightMax = 0;
         while (left < right) {
-            if (height[left] < height[right]) {
+            if (height[left] <= height[right]) {//由短边决定接水量
                 leftMax = Math.max(height[left], leftMax);
-                res += leftMax - height[left];
+                res += leftMax - height[left];//height[left]小于leftMax时,res接水量增加,否则不增加
                 left++;
             } else {
                 rightMax = Math.max(height[right], rightMax);
