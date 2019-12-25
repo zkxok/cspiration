@@ -37,7 +37,7 @@ public class TrappingRainWater {
         int res = 0;
         int leftMax = 0;
         int rightMax = 0;
-        while (left < right) {
+        while (left < right) {//至少要两个柱子才可能接水,虽然只有两个柱子的接水为0，但是计算的时候会计算到
             if (height[left] <= height[right]) {//由短边决定接水量
                 leftMax = Math.max(height[left], leftMax);
                 res += leftMax - height[left];//height[left]小于leftMax时,res接水量增加,否则不增加
