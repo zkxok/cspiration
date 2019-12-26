@@ -21,21 +21,33 @@ public class FindMinimuminRotatedSortedArrayII {
      * @param nums
      * @return
      */
-    public int findMin(int[] nums) {
+     public int findMin(int[] nums) {
         if (nums == null || nums.length == 0) return -1;
         int start = 0;
         int end = nums.length - 1;
         while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
-            if (nums[mid] < nums[end]) {
+            if (nums[mid] < nums[end]) {//不能有=
                 end = mid;
-            } else if (nums[mid] > nums[end]) {
+            } else if (nums[mid] > nums[end]) {//也不能有=
                 start = mid + 1;
-            } else {
-                end--;
+            } else {//避免这种情况[1,3,3],3，没有这个else ，结果返回3
+                end--;//[1,1,3,1],nums[mid]==nums[end];
             }
         }
         if (nums[start] < nums[end]) return nums[start];
         else return nums[end];
+    }
+    
+    
+    public int findMin2(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (left < right) {
+            int mid = (left + right) / 2;
+            if (nums[mid] > nums[right]) left = mid + 1;
+            else if (nums[mid] < nums[right]) right = mid;
+            else right = right - 1;
+        }
+        return nums[left];
     }
 }
