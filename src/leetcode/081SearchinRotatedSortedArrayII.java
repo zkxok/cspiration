@@ -58,6 +58,9 @@ public class SearchinRotatedSortedArrayII {
 			if (nums[mid] == target) {
 				return true;
 			}else if(nums[start] == nums[mid]&&//&& nums[mid] == nums[end]){//加上注释掉的两部分也行
+				 //3,3,3,4
+				 //10111 和 11101 这种。此种情况下 nums[start] == nums[mid]，
+				 //分不清到底是前面有序还是后面有序，此时 start++ 即可。相当于去掉一个重复的干扰项。
 				start++;
 				//end--;
 			}else if (nums[start] <=nums[mid]) {// start->mid 递增，这里必须有=,否则可能陷入死循环
