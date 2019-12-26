@@ -39,4 +39,19 @@ public class FindMinimuminRotatedSortedArray {
         if (nums[start] < nums[end]) return nums[start];
         else return nums[end];
     }
+    public int findMin(int[] nums) {
+		int start = 0;
+		int end = nums.length - 1;
+		while (start + 1 < end) {
+			int mid = (end - start) / 2 + start;
+			if (nums[mid] < nums[end]) {// 不可能会有==的情况(当然加上=也不会报错),因为参与的最少是3个数,而且没有重复数
+				end = mid;// [1,2,3],这里一定是end=mid,不能是end=mid-1,(如[3,1,2]情况)
+			} else {// nums[mid]>=nums[end],[2,3,1],
+				start = mid + 1;// 这里最好+1，不+1也不报错
+			}
+		}
+		if (nums[start] < nums[end]) return nums[start];
+		else return nums[end];
+	}
+    
 }
