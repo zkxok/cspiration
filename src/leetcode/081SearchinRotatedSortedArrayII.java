@@ -47,7 +47,7 @@ public class SearchinRotatedSortedArrayII {
         return false;
     }
     
-    
+    //**********************上面的注释版
     public boolean search(int[] nums, int target) {
 		if (nums == null || nums.length == 0)
 			return false;
