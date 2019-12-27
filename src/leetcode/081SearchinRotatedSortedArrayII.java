@@ -49,8 +49,7 @@ public class SearchinRotatedSortedArrayII {
     
     //**********************上面的注释版
     public boolean search(int[] nums, int target) {
-		if (nums == null || nums.length == 0)
-			return false;
+		if (nums == null || nums.length == 0) return false;
 		int start = 0;
 		int end = nums.length - 1;
 		while (start + 1 < end) {
@@ -67,14 +66,14 @@ public class SearchinRotatedSortedArrayII {
 				if (nums[start] <= target && target <= nums[mid]) {
 					end = mid - 1;
 				} else {
-					start = mid;
+					start = mid;//可以有+1
 				}
 			} else if (nums[mid] <= nums[end]) {// mid ->end 递增
             //这里必须有=,或者直接else
 				if (nums[mid] <= target && target <= nums[end]) {
 					start = mid + 1;
 				} else {
-					end = mid;
+					end = mid;//可以有-1
 				}
 			}
 		}
