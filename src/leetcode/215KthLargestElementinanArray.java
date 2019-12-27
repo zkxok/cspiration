@@ -21,7 +21,7 @@ public class KthLargestElementinanArray {
         if (nums == null || nums.length == 0) return 0;
         int left = 0;
         int right = nums.length - 1;
-        while (true) {
+        while (true) {//递归和非递归都可以，这里是用非递归
             int pos = partition(nums, left, right);
             if (pos + 1 == k) {
                 return nums[pos];
