@@ -43,6 +43,28 @@ public class TopKFrequentElements {
         }
         return res;
     }
+    
+     //PriorityQueue : time : O(nlogk) space : O(n)
+     public List<Integer> topKFrequent2_1(int[] nums, int k) {
+		List<Integer> res = new ArrayList<Integer>();
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int num : nums) {
+			map.put(num, map.getOrDefault(num, 0) + 1);
+		}
+		PriorityQueue<Map.Entry<Integer, Integer>> minHeap = new PriorityQueue<>(
+				(a, b) -> (a.getValue() - b.getValue()));
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			minHeap.offer(entry);
+			if (minHeap.size() > k) minHeap.poll();
+		}
+		while (!minHeap.isEmpty()) {
+			Map.Entry<Integer, Integer> entry = minHeap.poll();
+			res.add(entry.getKey());
+		}
+		return res;
+	}
+    
+    ********************************************************
 
     // TreeMap : time : O(nlogn) space : O(n)
     public List<Integer> topKFrequent3(int[] nums, int k) {
