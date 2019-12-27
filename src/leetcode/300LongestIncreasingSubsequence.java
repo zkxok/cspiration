@@ -108,9 +108,9 @@ public class LongestIncreasingSubsequence {
                 if(tails[mid] < num) i = mid + 1;
                 else j = mid;
             }
+	    //如果没有找到不小于(大于等于)num的数字,那么此时i值应该是tails的还没有元素的第一个空位,->反推数组元素个数
             tails[i] = num;//第一次,0位置就直接赋值了,这里tails[i]或者tails[j]都是一样的
-	    //i+1是当前tails数组元素个数,res == i,说明当前res等于了数组长度-1,res要等于数组长度，那么需要res++
-            //res == i
+	    //i+1是当前tails数组元素个数,res == i,说明当前res等于了数组长度-1,res要等于数组长度，那么需要res++或者写成res=i+1
             if(res == i) res++;//只有二分找到的这个i或者j,是dp数组的最后一个元素(也就是没找到大于等于num的元素,那么数组长度会增加),这里i或j都一样
         }
         return res;//最后返回 dp 数组的元素个数即可,
