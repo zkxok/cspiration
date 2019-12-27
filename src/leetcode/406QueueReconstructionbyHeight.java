@@ -28,4 +28,6 @@ public class QueueReconstructionbyHeight {
         //return res.toArray(new int[people.length][2]);返回这个也行
         return res.toArray(new int[people.length][]); //  List<int[]>转二维数组
     }
+	
+    //类似题目:疯狂队列:https://www.nowcoder.com/questionTerminal/c918f66513e44dd1bee0953d17919564
 }
