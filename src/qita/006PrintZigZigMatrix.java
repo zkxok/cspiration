@@ -1,10 +1,5 @@
-package ti;
-
-import java.util.*;
-
 //判题OJ:https://www.nowcoder.com/questionTerminal/7df39c7556424eada267d8f793961a1e?toCommentId=5162493
-public class Test {// 之字形打印矩阵
-
+public class PrintZigZigMatrix {// 之字形打印矩阵
     public static List<Integer> printMatrix(int[][] matrix) {
 	List<Integer> res = new ArrayList<>();
 	if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) return res;
