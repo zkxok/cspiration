@@ -22,7 +22,7 @@ public class KthLargestElementinanArray {
         int left = 0;
         int right = nums.length - 1;
         while (true) {//递归和非递归都可以，这里是用非递归
-            int pos = partition(nums, left, right);
+            int pos = partition(nums, left, right);//pos是下标索引
             if (pos + 1 == k) {
                 return nums[pos];
             } else if (pos + 1 > k) {
