@@ -56,11 +56,11 @@ public class StringtoInteger {
              start++;
         }
         for(int i = start;i<str.length();i++){
-            if(!Character.isDigit(str.charAt(i))) return (int) res*sign;
+            if(!Character.isDigit(str.charAt(i))) return (int) (res*sign);
             res = res * 10 + str.charAt(i) - '0';
             if(sign==1&&res>Integer.MAX_VALUE) return Integer.MAX_VALUE;
             if(sign==-1&&res>Integer.MAX_VALUE) return Integer.MIN_VALUE;
         }
-        return (int) res*sign;
+        return (int) (res*sign);//注意要加括号，不加括号的话,res要放在前面
     }
 }
