@@ -1,5 +1,4 @@
 public class Main {
-//OJ地址:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325
 	public void quickSort(int nums[], int left, int right) {
 		if (left >= right) return;//left>right肯定不行,left=right时，只有一个数也没必要继续排序
 		int pos = partition(nums, left, right);
@@ -28,3 +27,30 @@ public class Main {
 		nums[j] = temp;
 	}
 }
+
+
+
+//OJ地址:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325//
+//OJ辅助代码
+// import java.util.Scanner;
+
+// public class Main {
+
+// 	public static void main(String[] args) {
+// 		Scanner cin = new Scanner(System.in);
+// 		int number = Integer.parseInt(cin.nextLine());
+// 		String[] data = cin.nextLine().split(" ");
+// 		int[] array = new int[number];
+// 		for (int i = 0; i < number; i++) {
+// 			array[i] = Integer.parseInt(data[i]);
+// 		}
+// 		quickSort(array, 0, number - 1);
+// 		for (int i = 0; i < number; i++) {
+// 			if (i != number - 1)
+// 				System.out.print(array[i] + " ");
+// 			else
+// 				System.out.print(array[i]);
+
+// 		}
+// 	}
+// }
