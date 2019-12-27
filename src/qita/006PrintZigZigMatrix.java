@@ -5,7 +5,7 @@ public class PrintZigZigMatrix {// 之字形打印矩阵
 		if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) return res;
 		int m = matrix.length;
 		int n = matrix[0].length;
-		for (int i = 0; i < m; i++) {
+		for (int i = 0; i < m; i++) { 
 			for (int j = 0; j < n; j++) {
 				if (i % 2 == 0) {// 奇数行
 					res.add(matrix[i][j]);
