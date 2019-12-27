@@ -1,7 +1,3 @@
-package ti;
-
-import java.util.*;
-
 //判题OJ:https://www.nowcoder.com/questionTerminal/7df39c7556424eada267d8f793961a1e?toCommentId=5162493
 public class Test {// 之字形打印矩阵
 	public static List<Integer> printMatrix(int[][] matrix) {
@@ -29,7 +25,7 @@ public class Test {// 之字形打印矩阵
 			for (int j = 0; j < n; j++) {
 				if (i % 2 == 0) {// 奇数行
 					res[count++] = matrix[i][j];
-				} else {// 偶数行
+				} else {// 偶数行  
 					res[count++] = matrix[i][n - 1 - j];
 				}
 			}
