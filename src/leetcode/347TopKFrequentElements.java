@@ -27,9 +27,9 @@ public class TopKFrequentElements {
     public List<Integer> topKFrequent2(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);、、map有num就取num的值，没有就取默认值0
+            map.put(num, map.getOrDefault(num, 0) + 1);//map有num就取num的值，没有就取默认值0
         }
-
+        //出现次数多的，排在前面
         PriorityQueue<Map.Entry<Integer, Integer>> maxHeap =
                 new PriorityQueue<>((a, b) -> (b.getValue() - a.getValue()));
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
