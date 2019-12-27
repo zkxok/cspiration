@@ -42,10 +42,9 @@ public class StringtoInteger {
     }
     
     public int myAtoi2(String str) {
-        if(str==null||str.length()==0) return 0;
+        if(str==null||str.trim().length()==0) return 0;
         str = str.trim(); 
-        if(str.length()==0) return 0;//可能是符号位-或+
-        char firstChar = str.charAt(0);
+        char firstChar = str.charAt(0);//可能是符号位-或+
         int sign = 1;
         int start=0;
         long res = 0;
