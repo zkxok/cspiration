@@ -1,10 +1,13 @@
 class MyArray {
     private int[] arr;
+    
     private int size;
+    
     public MyArray(int capacity) {// initialCapacity
         this.arr = new int[capacity];
         this.size = 0;
     }
+    
     /**
      * @param index
      *            插入的元素的位置
@@ -28,6 +31,7 @@ class MyArray {
         arr[index] = element;
         size++;
     }
+    
     public boolean add(int element) {// insert
         if (size >= arr.length) {// 当前数组满了
             grow();// 扩容
@@ -35,6 +39,7 @@ class MyArray {
         arr[size++] = element;
         return true;
     }
+    
     /**
      * 数组进行扩容，这里必须选择正整数
      */
@@ -46,6 +51,7 @@ class MyArray {
         // 原有数组指向新数组的内容
         arr = newArray;
     }
+    
     /**
      * 删除指定位置的元素
      *
@@ -61,6 +67,7 @@ class MyArray {
         }
         size--;
     }
+    
     public void output() {
         for (int i = 0; i < size; i++) {
             System.out.println(arr[i]);
