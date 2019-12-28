@@ -1,28 +1,63 @@
+public class Main18_2 {
+    public static void main(String[] args) {
+        LinkList list = new LinkList();
+        list.add(0, 0);
+        list.add(1, 1);
+        list.add(2, 2);
+        list.add(3, 3);
+        list.add(4, 4);
+        list.add(5, 5);
+        list.add(6, 6);
+        list.add(7, 7);
+        list.addFirst(-1);
+        list.addFirst(-2);
+        list.add(0, -3);
+        list.add(0, -5);
+        list.add(1, -4);
+        list.addLast(8);
+        list.addLast(9);
+        list.add(0, -6);
+        list.add(4, 1114);
+        list.add(5, 1115);
+        list.add(6, 1116);
+        list.addLast(10);
+        list.addLast(11);
+        list.add(7, 11117);
+        list.add(9, 11119);
+        list.remove(9);
+        list.remove(0);
+        list.remove(0);
+        list.remove(0);
+        list.remove(1);
+        list.remove(17);
+        list.removeLast();
+        list.removeLast();
+        list.removeFirst();
+        list.removeLast();
+        list.dispalyList();
+        list.addLast(11);
+        list.dispalyList();
+    }
+}
 // 单向单端链表
 class LinkList {
     public Node first;// 就是头结点
-    
     int size = 0;
-    
     public LinkList() {
         first = null;
     }
-    
     public boolean isEmpty() {
         return first == null;
     }
-    
     public void addFirst(int val) {// insertFirst
         Node newNode = new Node(val);
         newNode.next = first;
         first = newNode;
         size++;
     }
-    
     public void addLast(int val) {// insertFirst
         add(size, val);
     }
-    
     public void add(int index, int val) {
         // 首先需要判断指定位置是否合法，
         if (index  size) {
@@ -56,7 +91,6 @@ class LinkList {
         temp.next = insertNode;
         size++;
     }
-    
     // *****************************************
     // 删除第一个元素,并返回被删除的元素
     public Node removeFirst() {// deleteFirst
@@ -65,11 +99,9 @@ class LinkList {
         size--;
         return temp;
     }
-    
     public void removeLast() {
         remove(size - 1);
     }
-    
     public void remove(int index) {
         // 首先需要判断指定位置是否合法，
         if (index  size - 1) {
@@ -100,7 +132,6 @@ class LinkList {
             temp = temp.next;
         }
     }
-    
     public int length() {
         int length = 0;
         // 临时节点，从首节点开始
@@ -112,7 +143,6 @@ class LinkList {
         }
         return length;
     }
-    
     public void dispalyList() {
         System.out.print("first-->last");
         Node cur = first;
@@ -121,7 +151,6 @@ class LinkList {
             cur = cur.next;
         }
     }
-    
     class Node {
         int val;
         Node next;
@@ -129,5 +158,4 @@ class LinkList {
             this.val = val;
         }
     }
-    
 }
