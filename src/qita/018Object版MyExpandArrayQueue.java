@@ -61,7 +61,7 @@ class ArrayQueue {
         return front == rear;
     }
 
-    private boolean isFull() {// 空一个位置,按道理可扩容队列应该没有(队列满了)一说
+    private boolean isFull() {// 空一个位置,按道理可扩容队列应该没有(队列满了)一说,留一个空位,让front和 rear永远不会是同一个
         return ((rear + 1) % capacity) == front;// capacity==queArray.length
     }
 
