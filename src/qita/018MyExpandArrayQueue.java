@@ -68,8 +68,7 @@ class ArrayQueue<T> {
         }
         arr = newArray;
         front = 0;
-        // 为啥是capacity - 1,因为rear是索引0开始到capacity-1,共capacity位,rear是最后一位capacity
-        // - 1,是一个空项
+        // 为啥是capacity - 1,因为rear是索引0开始到capacity-1,共capacity位,rear是最后一位capacity - 1,是一个空项
         rear = capacity - 1;// rear = nItems //上一次满了,那么就是只比容量小1
         capacity = newSize;
     }
