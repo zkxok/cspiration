@@ -1,22 +1,20 @@
 class MyArray {
     private int[] arr;
-    
+
     private int size;
-    
+
     public MyArray(int capacity) {// initialCapacity
         this.arr = new int[capacity];
         this.size = 0;
     }
-    
+
     /**
-     * @param index
-     *            插入的元素的位置
-     * @param element
-     *            插入的元素
+     * @param index   插入的元素的位置
+     * @param element 插入的元素
      * @throws Exception
      */
     public void add(int index, int element) throws Exception {// insert
-        if (index  size) {
+        if (index < 0 || index > size) {
             throw new Exception("插入的元素位置超越了数组实际的元素范围");
         }
         if (size >= arr.length) {// 当前数组满了
@@ -31,7 +29,7 @@ class MyArray {
         arr[index] = element;
         size++;
     }
-    
+
     public boolean add(int element) {// insert
         if (size >= arr.length) {// 当前数组满了
             grow();// 扩容
@@ -39,7 +37,7 @@ class MyArray {
         arr[size++] = element;
         return true;
     }
-    
+
     /**
      * 数组进行扩容，这里必须选择正整数
      */
@@ -51,7 +49,7 @@ class MyArray {
         // 原有数组指向新数组的内容
         arr = newArray;
     }
-    
+
     /**
      * 删除指定位置的元素
      *
@@ -59,7 +57,7 @@ class MyArray {
      * @throws Exception
      */
     public void remove(int index) throws Exception {// delete
-        if (index  size - 1) {
+        if (index < 0 || index > size - 1) {
             throw new Exception("不存在该下标对应的元素");
         }
         for (int i = index; i < size - 1; i++) {
@@ -67,10 +65,26 @@ class MyArray {
         }
         size--;
     }
-    
+
     public void output() {
         for (int i = 0; i < size; i++) {
             System.out.println(arr[i]);
         }
+    }
+}
+
+
+//******Test类***********
+public class Main {
+    public static void main(String[] args) throws Exception {
+        MyArray myArray = new MyArray(4);
+        myArray.add(0, 1);
+        myArray.add(0, 2);
+        myArray.add(0, 3);
+        myArray.add(0, 4);
+        myArray.remove(0);
+        myArray.add(3, 5);
+        myArray.add(100);
+        myArray.output();
     }
 }
