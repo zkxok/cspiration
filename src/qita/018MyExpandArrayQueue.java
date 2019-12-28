@@ -16,7 +16,7 @@ public class Main {
     }
 }
 
-// 数组实现可扩容循环队列
+// 数组实现可扩容循环队列(泛型版)
 class ArrayQueue<T> {
     private T[] arr;// queArray
     private int capacity;// 它是数组的长度maxSize,最大能放的元素比它小1
