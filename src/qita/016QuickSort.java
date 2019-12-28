@@ -1,3 +1,4 @@
+//OJ地址:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325
 public class QuickSort {
     public void quickSort(int nums[], int left, int right) {
         if (left >= right) return;// left>right肯定不行,left=right时，只有一个数也没必要继续排序
