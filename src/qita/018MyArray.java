@@ -7,3 +7,4 @@ class MyArray {
 	this.arr = new int[capacity];
 	this.size = 0;
   }
+   
