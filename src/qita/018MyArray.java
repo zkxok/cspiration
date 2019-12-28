@@ -1,6 +1,5 @@
-package ti;
 
-public class Main018 {
+public class Main {
 	public static void main(String[] args) throws Exception {
 		MyArray myArray = new MyArray(4);
 		myArray.add(0, 1);
@@ -42,7 +41,7 @@ class MyArray {
 		// 给要插入的元素腾出位置
 		// 移动顺序就是从最后一个元素开始向后移动，一直到原有位置的元素后移一位
 		for (int i = size - 1; i >= index; i--) {
-			arr[i + 1] = arr[i];
+		    arr[i + 1] = arr[i];
 		}
 		arr[index] = element;
 		size++;
