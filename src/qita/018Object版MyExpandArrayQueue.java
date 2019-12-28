@@ -15,7 +15,7 @@ public class Main018_MyQueue {
         }
     }
 }
-
+//原博:https://blog.csdn.net/qq_33723924/article/details/82944924
 // 数组实现可扩容循环队列
 class ArrayQueue {//Object版
     private Object[] arr;// queArray
