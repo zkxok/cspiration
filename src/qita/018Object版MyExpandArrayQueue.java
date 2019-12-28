@@ -1,6 +1,4 @@
-package ti;
-
-public class Main018_MyQueue {
+public class Main018 {
     public static void main(String[] args) {
         ArrayQueue queue = new ArrayQueue(2);
         queue.offer(1);
@@ -18,7 +16,8 @@ public class Main018_MyQueue {
     }
 }
 
-// 数组实现可扩容循环队列
+//原博:https://blog.csdn.net/qq_33723924/article/details/82944924
+// 数组实现可扩容循环队列(Object版)
 class ArrayQueue {
     private Object[] arr;// queArray
     private int capacity;// 它是数组的长度maxSize,最大能放的元素比它小1
