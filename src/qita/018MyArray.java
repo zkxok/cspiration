@@ -1,11 +1,3 @@
-myArray.add(0, 3);
-        myArray.add(0, 4);
-        myArray.remove(0);
-        myArray.add(3, 5);
-        myArray.add(100);
-        myArray.output();
-    }
-}
 class MyArray {
     private int[] arr;
     private int size;
