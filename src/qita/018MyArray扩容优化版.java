@@ -66,6 +66,7 @@ class MyArray {
         System.arraycopy(arr, 0, newArray, 0, arr.length);
         // 原有数组指向新数组的内容
         arr = newArray;
+//         arr = Arrays.copyOf(arr, arr.length * 2);//这样写也行，那么上面的都不用了
     }
 
     /**
