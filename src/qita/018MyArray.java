@@ -1,3 +1,18 @@
+package ti;
+
+public class Main018 {
+	public static void main(String[] args) throws Exception {
+		MyArray myArray = new MyArray(4);
+		myArray.add(0, 1);
+		myArray.add(0, 2);
+		myArray.add(0, 3);
+		myArray.add(0, 4);
+		myArray.remove(0);
+		myArray.add(3, 5);
+		myArray.add(100);
+		myArray.output();
+	}
+}
 
 class MyArray {
 	private int[] arr;
