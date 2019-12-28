@@ -37,9 +37,9 @@ class ArrayQueue {
     }
 
     public void offer(Object element) {
-        // if (nItems == maxSize - 1)
+        // if (nItems == maxSize - 1)//等于数组长度-1时扩容
         // expand();// 扩容
-        if (isFull()) expand();
+        if (isFull()) expand();//我这里写的是，满了扩容(也就是数组长度-1时)
         arr[rear] = element;
         rear = (rear + 1) % capacity;
         // nItems++;
@@ -61,7 +61,7 @@ class ArrayQueue {
         return front == rear;
     }
 
-    public boolean isFull() {// 空一个位置
+    private boolean isFull() {// 空一个位置,按道理可扩容队列应该没有(队列满了)一说
         return ((rear + 1) % capacity) == front;// capacity==queArray.length
     }
 
