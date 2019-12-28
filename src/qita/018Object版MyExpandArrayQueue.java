@@ -1,6 +1,8 @@
+package ti;
+
 public class Main018_MyQueue {
     public static void main(String[] args) {
-        Queue queue = new Queue(2);
+        ArrayQueue queue = new ArrayQueue(2);
         queue.offer(1);
         queue.offer(2);
         queue.offer(3);
@@ -15,13 +17,14 @@ public class Main018_MyQueue {
         }
     }
 }
-//原博:https://blog.csdn.net/qq_33723924/article/details/82944924
+
 // 数组实现可扩容循环队列
-class ArrayQueue {//Object版
+class ArrayQueue {
     private Object[] arr;// queArray
     private int capacity;// 它是数组的长度maxSize,最大能放的元素比它小1
     private int front;
     private int rear;
+    // private int nItems;// 数组里元素的个数
 
     public ArrayQueue(int initialCapacity) {// initialCapacity:不扩容初始能存的最大元素个数
         if (initialCapacity < 0) {
@@ -31,12 +34,16 @@ class ArrayQueue {//Object版
         arr = new Object[capacity];
         front = 0;
         rear = 0;
+        // nItems = 0;
     }
 
     public void offer(Object element) {
+        // if (nItems == maxSize - 1)
+        // expand();// 扩容
         if (isFull()) expand();
         arr[rear] = element;
         rear = (rear + 1) % capacity;
+        // nItems++;
     }
 
     public Object poll() {
@@ -44,12 +51,14 @@ class ArrayQueue {//Object版
             return null;
         } else {
             Object element = arr[front];
+            // arr[front] = null;
             front = (front + 1) % capacity;
+            // nItems--;
             return element;
         }
     }
 
-    public boolean isEmpty() {// 只有空
+    public boolean isEmpty() {
         return front == rear;
     }
 
@@ -71,5 +80,7 @@ class ArrayQueue {//Object版
         rear = capacity - 1;// rear = nItems //上一次满了,那么就是只比容量小1
         capacity = newSize;
     }
-
+    // public int getSize() {
+    // return nItems;
+    // }
 }
