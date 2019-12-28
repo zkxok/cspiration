@@ -1,4 +1,4 @@
-public class Main18_2 {
+public class Main {
     public static void main(String[] args) {
         LinkList list = new LinkList();
         list.add(0, 0);
@@ -42,22 +42,27 @@ public class Main18_2 {
 // 单向单端链表
 class LinkList {
     public Node first;// 就是头结点
+    
     int size = 0;
+    
     public LinkList() {
         first = null;
     }
     public boolean isEmpty() {
         return first == null;
     }
+    
     public void addFirst(int val) {// insertFirst
         Node newNode = new Node(val);
         newNode.next = first;
         first = newNode;
         size++;
     }
+    
     public void addLast(int val) {// insertFirst
         add(size, val);
     }
+    
     public void add(int index, int val) {
         // 首先需要判断指定位置是否合法，
         if (index < 0 || index > size) {
@@ -91,6 +96,7 @@ class LinkList {
         temp.next = insertNode;
         size++;
     }
+    
     // *****************************************
     // 删除第一个元素,并返回被删除的元素
     public Node removeFirst() {// deleteFirst
@@ -99,9 +105,11 @@ class LinkList {
         size--;
         return temp;
     }
+    
     public void removeLast() {
         remove(size - 1);
     }
+    
     public void remove(int index) {
         // 首先需要判断指定位置是否合法，
         if (index < 0 || index > size - 1) {
@@ -132,6 +140,7 @@ class LinkList {
             temp = temp.next;
         }
     }
+    
     public int length() {
         int length = 0;
         // 临时节点，从首节点开始
@@ -143,6 +152,7 @@ class LinkList {
         }
         return length;
     }
+    
     public void dispalyList() {
         System.out.print("first-->last");
         Node cur = first;
@@ -151,6 +161,7 @@ class LinkList {
             cur = cur.next;
         }
     }
+    
     class Node {
         int val;
         Node next;
