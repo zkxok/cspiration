@@ -29,8 +29,9 @@ public class SingleNumberII {
 
      time : O(n)
      space : O(1)
-
+//题解:cspiration的视频
 //https://zhangluncong.com/2018/09/15/singleNumber/
+//https://leetcode-cn.com/problems/single-number-ii/solution/single-number-ii-mo-ni-san-jin-zhi-fa-by-jin407891/
      * @param nums
      * @return
      */
