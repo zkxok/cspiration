@@ -44,6 +44,7 @@ public class BinaryTreePaths {
     public static void helper(List<String> res, TreeNode root, String path) {
         if (root.left == null && root.right == null) {
             res.add(path + root.val);
+           // return;有没有这个return 都行，这是递归结束条件
         }
         if (root.left != null) {
             helper(res, root.left, path + root.val + "->");
