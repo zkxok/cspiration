@@ -8,7 +8,7 @@ package leetcode;
  * Date : Sep, 2017
  * Description : TODO
  */
-public class IsSubsequence {
+public class IsSubsequence {//*******和Leetoce455类似
     /**
      * 392. Is Subsequence
      * Example 1:
