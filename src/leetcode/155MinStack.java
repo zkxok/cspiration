@@ -122,4 +122,42 @@ class MinStack2 {
         return min;
     }
 }
+//*************************
 
+
+class MinStack {
+    Stack<Integer> stack;
+    Stack<Integer> min;
+
+    /** initialize your data structure here. */
+    public MinStack() {
+        stack = new Stack<Integer>();
+        min = new Stack<Integer>();
+    }
+    
+    public void push(int x) {
+        stack.push(x);
+        if(x<getMin()){
+            min.push(x);
+        }else{
+            min.push(getMin());
+        }
+
+    }
+    
+    public void pop() {
+        stack.pop();
+        min.pop();
+    }
+    
+    public int top() {
+       return stack.peek();
+    }
+    
+    public int getMin() {
+        if(min.isEmpty()){
+            return Integer.MAX_VALUE;
+        }
+        return min.peek();
+    }
+}
