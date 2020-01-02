@@ -12,7 +12,7 @@ public class SortedOddAndEvenList {
     // 最后将两个有序链表进行合并。
 
     // 这一步注意细节
-    public ListNode[] getTwoList(ListNode head) {
+    public ListNode[] devideList(ListNode head) {
         if (head == null || head.next == null) return null;// 至少要有两个节点
         ListNode l1 = head;
         ListNode l2 = head.next;
@@ -59,7 +59,7 @@ public class SortedOddAndEvenList {
     }
 
     public ListNode sortLinkedList(ListNode head) {
-        ListNode[] twoList = getTwoList(head);// 拆分链表
+        ListNode[] twoList = devideList(head);// 拆分链表
         ListNode l1 = twoList[0];
         ListNode l2 = reverse(twoList[1]);// 翻转l2
         ListNode res = mergeListNode(l1, l2);// 合并l1,l2
