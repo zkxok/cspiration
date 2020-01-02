@@ -30,8 +30,7 @@ public class SortedOddAndEvenList {
     }
 
     private ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null)
-            return head;
+        if (head == null || head.next == null) return head;
         ListNode pre = null;
         while (head != null) {
             ListNode temp = head.next;
