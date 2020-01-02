@@ -1,3 +1,6 @@
+//题解:https://www.jianshu.com/p/4c2fbae5a829
+https://blog.csdn.net/zxm1306192988/article/details/82837470
+https://www.cnblogs.com/DarrenChan/p/8764608.html
 /**
  * 单链表奇数递增偶数递减，使之升序 分三步： 1.拆分成2个链表 2.对逆序的链表反转 3.合并2个链表
  */
