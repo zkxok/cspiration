@@ -28,13 +28,14 @@ public class SortedOddAndEvenList {
         return new ListNode[] { l1, l2 };
     }
 
-    public ListNode reverse(ListNode head) {
-        ListNode pre = null, next = null;
+    private ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode pre = null;
         while (head != null) {
-            next = head.next;
+            ListNode temp = head.next;
             head.next = pre;
             pre = head;
-            head = next;
+            head = temp;
         }
         return pre;
     }
