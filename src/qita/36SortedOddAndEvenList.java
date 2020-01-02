@@ -1,6 +1,7 @@
 //题解:https://www.jianshu.com/p/4c2fbae5a829
-https://blog.csdn.net/zxm1306192988/article/details/82837470
-https://www.cnblogs.com/DarrenChan/p/8764608.html
+//https://blog.csdn.net/zxm1306192988/article/details/82837470
+//https://www.cnblogs.com/DarrenChan/p/8764608.html
+
 /**
  * 单链表奇数递增偶数递减，使之升序 分三步： 1.拆分成2个链表 2.对逆序的链表反转 3.合并2个链表
  */
@@ -25,11 +26,12 @@ public class SortedOddAndEvenList {
             next2.next = next1 == null ? null : next1.next;
             head = next1;// l1向后遍历
         }
-        return new ListNode[] { l1, l2 };
+        return new ListNode[]{l1, l2};
     }
 
     private ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) return head;
+        if (head == null || head.next == null)
+            return head;
         ListNode pre = null;
         while (head != null) {
             ListNode temp = head.next;
@@ -61,7 +63,7 @@ public class SortedOddAndEvenList {
     public ListNode sortLinkedList(ListNode head) {
         ListNode[] twoList = devideList(head);// 拆分链表
         ListNode l1 = twoList[0];
-        ListNode l2 = reverse(twoList[1]);// 翻转l2
+        ListNode l2 = reverseList(twoList[1]);// 翻转l2
         ListNode res = mergeListNode(l1, l2);// 合并l1,l2
         return res;
     }
