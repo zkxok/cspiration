@@ -62,4 +62,47 @@ public class Main38 {
         }
         return res;
     }
+    
+    **********************************法3**************************************************
+    public ArrayList<Integer> findTokSmall(int[] nums, int k) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if (nums == null || nums.length == 0 || nums.length < k || k == 0) return res;
+        int index = findKthSmall(nums, k);
+        for (int i = 0; i <= index; i++) {
+            res.add(nums[i]);
+        }
+        return res;
+    }
+
+    public int findKthSmall(int[] nums, int k) {
+        if (nums == null || nums.length == 0) return 0;
+        int left = 0, right = nums.length - 1;
+        while (true) {
+            int pos = partition(nums, left, right);
+            if (pos + 1 == k) return pos;
+            else if (pos + 1 < k) left = pos + 1;
+            else right = pos - 1;
+        }
+    }
+
+    private int partition(int[] nums, int left, int right) {
+        int pivot = nums[left];
+        int l = left + 1;
+        int r = right;
+        while (l <= r) {
+            if (nums[l] > pivot && nums[r] < pivot) {
+                swap(nums, l++, r--);
+            }
+            if (nums[l] <= pivot) l++;
+            if (nums[r] >= pivot) r--;
+        }
+        swap(nums, left, r);
+        return r;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
 }
