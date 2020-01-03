@@ -39,8 +39,8 @@ public class CountCompleteTreeNodes {
         int right = rightDepth(root);
         if (left == right) {//左子树深度和右子树深度相等,说明是这棵树是完全二叉树
             return (1 << left) - 1;
-        } else {
-            return 1 + countNodes(root.left) + countNodes(root.right);
+        } else {//最后一层不满，但是倒数第2层满了,
+            return 1 + countNodes(root.left) + countNodes(root.right);//根节点+递归左子树+递归右子树
         }
     }
 
