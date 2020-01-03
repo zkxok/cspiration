@@ -44,7 +44,7 @@ public class CountCompleteTreeNodes {
         }
     }
 
-    private int leftDepth(TreeNode root) {
+    private int leftDepth(TreeNode root) {//这个深度包括了根节点
         int res = 0;
         while (root != null) {
             root = root.left;
@@ -53,7 +53,7 @@ public class CountCompleteTreeNodes {
         return res;
     }
 
-    private int rightDepth(TreeNode root) {
+    private int rightDepth(TreeNode root) {//这个深度包括了根节点
         int res = 0;
         while (root != null) {
             root = root.right;
