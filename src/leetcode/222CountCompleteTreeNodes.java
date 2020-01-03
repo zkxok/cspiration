@@ -109,7 +109,7 @@ public class CountCompleteTreeNodes {
         }
     }
     //这里是求完全二叉树的深度
-    // private int countLeve(TreeNode root){
+    // private int countLevel(TreeNode root){
     //     int level = 0;
     //     while(root != null){
     //         level++;
