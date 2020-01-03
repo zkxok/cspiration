@@ -113,7 +113,7 @@ public class CountCompleteTreeNodes {
     //     int level = 0;
     //     while(root != null){
     //         level++;
-    //         root = root.left;
+    //         root = root.left;//为什么右子树也是一直遍历左节点，因为这是完全二叉树，左边的一定先有节点，然后才能轮到右边的
     //     }
     //     return level;
     // }
