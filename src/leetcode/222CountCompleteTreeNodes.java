@@ -83,33 +83,45 @@ public class CountCompleteTreeNodes {
         return 1 + countNodes2(root.left) + countNodes2(root.right);
     }
     
-    ***************
-    public int countNodes3(TreeNode root) {
-        if(root == null) return 0;
-        int leftDepth = countLeve(root.left);
-        int rightDepth = countLeve(root.right);
-        if(leftDepth == rightDepth){
-            return countNodes3(root.right) + (1<<leftDepth);
-        }else{
-            return countNodes3(root.left) + (1<<rightDepth);
-        }
-    }
-    //这里是求完全二叉树的深度
-    private int countLeve(TreeNode root){
-        int level = 0;
-        while(root != null){
-            level++;
-            root = root.left;
-        }
-        return level;
-    }
-    
+   
+
+    ***********************************************
     //*************可以，但是没有用上完全二叉树的特性*********** 
     public int countNodes4(TreeNode root) {
         if (root == null){
             return 0;
         }
         return countNodes4(root.left) + countNodes4(root.right) + 1;
+    }
+    
+    
+    
+     *******最优解法************************
+    public int countNodes(TreeNode root) {
+        if(root == null) return 0;
+        int leftDepth = countLevel(root.left);//求左子树深度，不包括根节点
+        int rightDepth = countLevel(root.right);//求右子树深度，不包括根节点
+        if(leftDepth == rightDepth){//左子树深度和右子树深度相等,说明右子树也有节点了，那么左子树肯定满了，是一个满二叉树
+            return countNodes(root.right) + (1<<leftDepth);//左子树满了，右子树可能未满，继续递归右子树
+            //这里没有-1，是因为它要加上root节点，不是root.left
+        }else{//最后一层不满，但是倒数第2层满了
+            return countNodes(root.left) + (1<<rightDepth);//右子树是满的,左子树可能满了，也可能未满
+        }
+    }
+    //这里是求完全二叉树的深度
+    // private int countLeve(TreeNode root){
+    //     int level = 0;
+    //     while(root != null){
+    //         level++;
+    //         root = root.left;
+    //     }
+    //     return level;
+    // }
+
+
+    private int countLevel(TreeNode root){
+        if(root == null) return 0;
+        return Math.max(countLevel(root.left),countLevel(root.right)) + 1;
     }
 }
 
