@@ -1,6 +1,22 @@
 //判题OJ:
 //https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=13&tqId=11182&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
 public class Main38 {
+    
+    public List<Integer> findTopk(int[] nums, int k) {
+        List<Integer> res = new ArrayList<>();
+        if (nums == null || nums.length <= 0 || nums.length < k) return res;
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> (b - a));
+        for (int num : nums) {
+            maxHeap.offer(num);
+            if (maxHeap.size() > k) maxHeap.poll();
+        }
+        while (!maxHeap.isEmpty()) {
+            res.add(maxHeap.poll());
+        }
+        return res;
+    }
+    
+    //********************************法2:堆排序************************************
     public List<Integer> findTopk(int[] nums, int k) {
         int len = nums.length;
         List<Integer> res = new ArrayList<Integer>();
@@ -50,22 +66,9 @@ public class Main38 {
         arr[n] = temp;
     }
     
-    **********************法2****************************
-    public List<Integer> findTopk(int[] nums, int k) {
-        List<Integer> res = new ArrayList<>();
-        if (nums == null || nums.length <= 0 || nums.length < k) return res;
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> (b - a));
-        for (int num : nums) {
-            maxHeap.offer(num);
-            if (maxHeap.size() > k) maxHeap.poll();
-        }
-        while (!maxHeap.isEmpty()) {
-            res.add(maxHeap.poll());
-        }
-        return res;
-    }
     
-    **********************************法3**************************************************
+    
+    **********************************法3:快排**************************************************
     public ArrayList<Integer> findTokSmall(int[] nums, int k) {
         ArrayList<Integer> res = new ArrayList<>();
         if (nums == null || nums.length == 0 || nums.length < k || k == 0) return res;
@@ -107,7 +110,6 @@ public class Main38 {
         nums[i] = nums[j];
         nums[j] = temp;
     }
-
 
    //*********************法四:冒泡排序************************
    public ArrayList<Integer> GetLeastNumbers_Solution(int[] nums, int k) {
