@@ -105,6 +105,7 @@ public class CountCompleteTreeNodes {
             return (1<<leftDepth) + countNodes(root.right);//左子树满了，右子树可能未满，继续递归右子树
             //这里没有-1，是因为它要加上root节点，不是root.left
         }else{//最后一层不满，但是倒数第2层满了
+            //移位操作一定要有(),因为<<的优先级低
             return (1<<rightDepth) + countNodes(root.left);//右子树是满的,左子树可能满了，也可能未满
         }
     }
