@@ -70,8 +70,7 @@ public class CountCompleteTreeNodes {
     ********************
 
     public int countNodes2(TreeNode root) {
-        if (root == null)
-            return 0;
+        if (root == null) return 0;
         TreeNode left = root, right = root;
         int height = 0;
         while (right != null) {
