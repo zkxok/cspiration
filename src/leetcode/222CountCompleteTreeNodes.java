@@ -86,8 +86,8 @@ public class CountCompleteTreeNodes {
     ***************
     public int countNodes3(TreeNode root) {
         if(root == null) return 0;
-        int leftDepth = countLevel(root.left);
-        int rightDepth = countLevel(root.right);
+        int leftDepth = countLeve(root.left);
+        int rightDepth = countLeve(root.right);
         if(leftDepth == rightDepth){
             return countNodes3(root.right) + (1<<leftDepth);
         }else{
@@ -95,7 +95,7 @@ public class CountCompleteTreeNodes {
         }
     }
     //这里是求完全二叉树的深度
-    private int countLevel(TreeNode root){
+    private int countLeve(TreeNode root){
         int level = 0;
         while(root != null){
             level++;
