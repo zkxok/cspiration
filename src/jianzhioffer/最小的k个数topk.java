@@ -107,4 +107,27 @@ public class Main38 {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
+
+   //*********************法四:冒泡排序************************
+   public ArrayList<Integer> GetLeastNumbers_Solution(int[] nums, int k) {
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        if (nums.length == 0 || k <= 0 || k > nums.length) return res;
+        int flag = 1;
+        for (int i = 0; i < nums.length - 1 && flag == 1; i++) {// input.length-1次扫描
+            flag = 0;
+            for (int j = nums.length - 1; j > i; j--) {
+                if (nums[j - 1] > nums[j]) {
+                    flag = 1;
+                    int temp = nums[j - 1];
+                    nums[j - 1] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            res.add(nums[i]);
+        }
+        return res;
+    }
 }
