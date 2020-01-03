@@ -108,21 +108,22 @@ public class CountCompleteTreeNodes {
             return (1<<rightDepth) + countNodes(root.left);//右子树是满的,左子树可能满了，也可能未满
         }
     }
-    //这里是求完全二叉树的深度
-    // private int countLevel(TreeNode root){
-    //     int level = 0;
-    //     while(root != null){
-    //         level++;
-    //         root = root.left;//为什么右子树也是一直遍历左节点，因为这是完全二叉树，左边的一定先有节点，然后才能轮到右边的
-    //     }
-    //     return level;
-    // }
-
-
+    
+//     private int countLevel(TreeNode root){//递归求深度,没有利用到完全二叉树的性质
+//         if(root == null) return 0;
+//         return Math.max(countLevel(root.left),countLevel(root.right)) + 1;
+//     }
+    
+    这里是求完全二叉树的深度
     private int countLevel(TreeNode root){
-        if(root == null) return 0;
-        return Math.max(countLevel(root.left),countLevel(root.right)) + 1;
+        int level = 0;
+        while(root != null){
+            level++;
+            root = root.left;//为什么右子树也是一直遍历左节点，因为这是完全二叉树，左边的一定先有节点，然后才能轮到右边的
+        }
+        return level;
     }
+    
 }
 
 
