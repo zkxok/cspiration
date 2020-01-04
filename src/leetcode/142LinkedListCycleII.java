@@ -27,7 +27,7 @@ public class LinkedListCycleII {
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (fast == slow) {
+            if (fast == slow) {//fast比slow多走一个环的距离
                 ListNode slow2 = head;
                 while (slow != slow2) {
                     slow = slow.next;
