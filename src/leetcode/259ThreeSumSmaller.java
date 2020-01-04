@@ -40,7 +40,7 @@ public class ThreeSumSmaller {
             int right = nums.length - 1;
             while (left < right) {
                 if (nums[i] + nums[left] + nums[right] < target) {
-                    res += right - left;
+                    res += right - left;//这个区间的都小于target
                     left++;
                 } else right--;
             }
