@@ -33,7 +33,7 @@ public class MaximumSubarray {
         return res;
     }
 
-    // time : O(n) space : O(1);
+    // time : O(n) space : O(1);最优解法
     public int maxSubArray2(int[] nums) {
         int res = nums[0];
         int sum = nums[0];
@@ -64,7 +64,7 @@ class Solution {
     }
 
 
-
+    //最优解法
     public int maxSubArray(int[] nums) {
         int res = nums[0];
         int sum =  nums[0];
@@ -73,6 +73,20 @@ class Solution {
                 sum=sum+nums[i];
             }else{
                 sum = nums[i];
+            }
+            res = Math.max(res,sum);
+        }
+        return res;
+    }
+    //上面写法的另一种形式
+    public int maxSubArray(int[] nums) {
+        int res = Integer.MIN_VALUE;//要考虑会有负数
+        int sum = 0;
+        for(int num:nums){
+            if(sum>0){
+                sum+=num;
+            }else{
+                sum = num;
             }
             res = Math.max(res,sum);
         }
