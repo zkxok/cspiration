@@ -31,7 +31,7 @@ public class ThreeSumSmaller {
      * @param target
      * @return
      */
-
+    //找和小于target的三元组的对数
     public int threeSumSmaller(int[] nums, int target) {
         int res = 0;
         Arrays.sort(nums);
