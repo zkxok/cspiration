@@ -36,7 +36,7 @@ public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++) {//至少有3个数参与
+        for (int i = 0; i < nums.length - 2; i++) {//至少有3个数参与,nums.length至少要等于3
             if (i > 0 && nums[i] == nums[i - 1]) continue;//去重0,降维的数也要去重
             int low = i + 1, high = nums.length - 1, sum = 0 - nums[i];//low是不断增加的，避免选到以前选过的数(重复选)
             while (low < high) {//降维成二维
