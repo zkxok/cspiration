@@ -42,9 +42,9 @@ public class Main {
     }
 
     // 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）
-    public void adjustHeap(int[] arr, int n, int size) {
-        int temp = arr[n];// 先取出当前元素i
-        int child = 2 * n + 1;// 左子节点,从i结点的左子结点开始，也就是2i+1处开始
+    public void adjustHeap(int[] arr, int i, int size) {//i是堆顶坐标,size是数组元素个数，不是坐标
+        int temp = arr[i];// 先取出当前元素i
+        int child = 2 * i + 1;// 左子节点,从i结点的左子结点开始，也就是2i+1处开始
         while (child < size) {// 有左子结点
             if (child + 1 < size && arr[child + 1] > arr[child]) {// 且有右子节点,如果左子结点小于右子结点，child指向右子结点
                 child++;
@@ -52,14 +52,14 @@ public class Main {
             // 如果父节点小于孩子结点，则需要交换
             // 如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
             if (arr[child] > temp) {// 这里的arr[child] 左右子节点中较大的那个子节点
-                arr[n] = arr[child];
-                n = child;
-                child = 2 * n + 1;
+                arr[i] = arr[child];
+                i = child;
+                child = 2 * i + 1;//child变成i的左子节点继续遍历
             } else {
                 break;// 大顶堆结构未被破坏，不需要调整
             }
         }
-        arr[n] = temp;// 将temp值放到最终的位置
+        arr[i] = temp;// 将temp值放到最终的位置
     }
 
     public void swap(int[] arr, int a, int b) {
