@@ -36,6 +36,7 @@ public class Main {
     // 初始化最大堆
     public void initHeap(int[] arr) {
         // 从第一个非叶子结点从下至上，从右至左调整结构
+         //依次以索引arr.length / 2 - 1到0的元素为堆顶（根节点）,调整大顶堆,
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
             adjustHeap(arr, i, arr.length);
         }
