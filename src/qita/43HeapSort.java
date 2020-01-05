@@ -40,10 +40,10 @@ public class Main {
             adjustHeap(arr, i, arr.length);
         }
     }
-
+    //以i为根节点，调整最大堆
     // 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）
     public void adjustHeap(int[] arr, int i, int size) {//i是堆顶坐标,size是数组元素个数，不是坐标
-        int temp = arr[i];// 先取出当前元素i
+        int temp = arr[i];// 先取出当前元素i////根节点
         int child = 2 * i + 1;// 左子节点,从i结点的左子结点开始，也就是2i+1处开始
         while (child < size) {// 有左子结点
             if (child + 1 < size && arr[child + 1] > arr[child]) {// 且有右子节点,如果左子结点小于右子结点，child指向右子结点
@@ -51,10 +51,10 @@ public class Main {
             }
             // 如果父节点小于孩子结点，则需要交换
             // 如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
-            if (arr[child] > temp) {// 这里的arr[child] 左右子节点中较大的那个子节点
-                arr[i] = arr[child];
-                i = child;
-                child = 2 * i + 1;//child变成i的左子节点继续遍历
+            if (arr[child] > temp) {// 这里的arr[child] 左右子节点中较大的那个子节点//子节点>根节点
+                arr[i] = arr[child];//子节点值=父节点值
+                i = child;//索引变成子节点的,向下遍历到子节点
+                child = 2 * i + 1;//child变成i的左子节点继续遍历//这里的child就是子节点的子节点了
             } else {
                 break;// 大顶堆结构未被破坏，不需要调整
             }
