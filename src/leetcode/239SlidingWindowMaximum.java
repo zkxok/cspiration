@@ -57,7 +57,8 @@ public class SlidingWindowMaximum {
         return res;
     }
 
-
+//同剑指offer65题:
+//OJ:https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&tqId=11217&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
 ***************上文注释版******************
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
