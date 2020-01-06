@@ -57,8 +57,7 @@ public class SlidingWindowMaximum {
         return res;
     }
 
-//同剑指offer65题:
-//OJ:https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&tqId=11217&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+
 ***************上文注释版******************
     public int[] maxSlidingWindow(int[] nums, int k) {
         if (nums == null || nums.length == 0) {
@@ -79,6 +78,33 @@ public class SlidingWindowMaximum {
             deque.offerLast(i);
             if ((i + 1) >= k) {
                 res[i + 1 - k] = nums[deque.peek()];//队头的元素为总是为滑动窗口最大的元素
+            }
+        }
+        return res;
+    }
+    
+    
+    //同剑指offer65题:
+    //OJ:https://www.nowcoder.com/practice/1624bc35a45c42c0bc17d17fa0cba788?tpId=13&tqId=11217&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+    //以下是剑指offer答案: 
+    public ArrayList<Integer> maxInWindows(int[] nums, int size) {
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        if (nums==null || size == 0) return res;
+        Deque<Integer> deque = new LinkedList<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            int begin = i - size + 1;
+            if (deque.isEmpty()) {
+                deque.offerLast(i);// 加入队尾
+            } else if (begin > deque.peekFirst()) {// 查看对头元素是否不在滑动窗口内
+                deque.pollFirst();// 移除对头
+            }
+            //队列不为空,且队尾元素小于新元素,就把队尾元素移除
+            while ((!deque.isEmpty()) && nums[deque.peekLast()] <= nums[i]) {
+                deque.pollLast();// 移除队尾
+            }
+            deque.offerLast(i);// 加入队尾
+            if (begin >= 0) {
+                res.add(nums[deque.peekFirst()]);
             }
         }
         return res;
