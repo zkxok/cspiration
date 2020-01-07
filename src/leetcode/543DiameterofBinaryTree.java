@@ -8,6 +8,7 @@ package leetcode;
  * Date : Sep, 2017
  * Description : TODO
  */
+//题解:https://leetcode-cn.com/problems/diameter-of-binary-tree/solution/er-cha-shu-de-zhi-jing-by-leetcode/
 public class DiameterofBinaryTree {
     /**
      * 543. Diameter of Binary Tree
