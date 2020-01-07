@@ -27,7 +27,7 @@ public class Solution {
             for (Node node : cur.children) {
                 stack.push(node);
             }
-            res.add(0, cur.val);
+            res.add(0, cur.val);//左右根:其他的->自己
         }
         return res;
     }
