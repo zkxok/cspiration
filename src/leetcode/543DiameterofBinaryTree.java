@@ -43,7 +43,7 @@ public class DiameterofBinaryTree {
         if (root == null) return 0;
         int left = helper(root.left);
         int right = helper(root.right);
-        res = Math.max(res, left + right);
+        res = Math.max(res, left + right);//因为答案是距离,是节点个数-1,所以这里我们不加1,后面也不用-1
         return Math.max(left, right) + 1;
     }
 }
