@@ -63,9 +63,11 @@ public class SlidingWindowMaximum {
         if (nums == null || nums.length == 0) {
             return new int[0];
         }
+        //存的是数组下标,为何存数组下标,原因：下面要根据数组下标判断当前队列头部元素是否在滑动窗口内
         Deque<Integer> deque = new LinkedList<>();
         int[] res = new int[nums.length + 1 - k];
         for (int i = 0; i < nums.length; i++) {
+            //deque.peekFirst()<=i-k;说明队列头部元素不在滑动窗口内,滑动窗口范围在(i-k,i]之间
             if (!deque.isEmpty() && deque.peekFirst() <= i - k) {//==也行
                 deque.poll();//移除所有滑动窗口范围之外的元素,移除队头,等同于removeFirst
             }
