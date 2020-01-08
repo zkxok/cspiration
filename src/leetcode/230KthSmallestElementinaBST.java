@@ -32,4 +32,7 @@ public class KthSmallestElementinaBST {
 		if (count == 0) res = root.val;
 		helper(root.right);
 	}
+	
+	//一个不错的解法:
+	//https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/solution/javashu-de-zhong-xu-bian-li-fang-fa-di-gui-he-fei-/
 }
