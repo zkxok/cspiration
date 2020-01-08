@@ -114,4 +114,21 @@ public int singleNumber(int[] nums) {
 >>      :     右移运算符，num >> 1,相当于num除以2
 
 >>>    :     无符号右移，忽略符号位，空位都以0补齐
+    
+    //本人最简单写法
+    public int singleNumber(int[] nums) {
+        int res = 0;
+        for (int i = 0; i < 32; i++) {
+            int count = 0;
+            for (int num : nums) {
+                if ((num >> i & 1) == 1) {
+                    count++;
+                }
+            }
+            if (count % 3 != 0) res += (1 << i);
+        }
+        return res;
+    }
+    
+    
 }
