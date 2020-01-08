@@ -35,4 +35,25 @@ public class KthSmallestElementinaBST {
 	
 	//一个不错的解法:
 	//https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/solution/javashu-de-zhong-xu-bian-li-fang-fa-di-gui-he-fei-/
+
+	  //个人简化版
+	    int res;
+	    int count;
+	    public int kthSmallest(TreeNode root, int k) {
+		count = k;
+		helper(root);
+		return res;
+	    }
+
+	    public void helper(TreeNode root){
+		if(root==null) return;
+		helper(root.left);
+		count--;
+		if(count==0) {
+		    res = root.val;
+		    return;
+		}
+		helper(root.right);
+	    }
 }
+  
