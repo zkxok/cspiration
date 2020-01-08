@@ -41,7 +41,7 @@ public class ReverseLinkedListII {
         for (int i = 0; i < n - m; i++) {//遍历n-m次
             ListNode temp = cur.next;//cur要和temp交换位置(反转)
             cur.next = temp.next;
-            temp.next = pre.next;
+            temp.next = pre.next;//不能写成temp.next = cur;的原因:temp要和pre.next这个整体交换，当逆转的元素超过两个，就会出问题
             pre.next = temp;
         }
         return dummy.next;
