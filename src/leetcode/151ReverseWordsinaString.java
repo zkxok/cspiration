@@ -29,7 +29,8 @@ public class ReverseWordsinaString {
         }
         return sb.toString().trim();
     }
-
+    
+//*****************法2**************************
     // time : O(n) space : O(n)
     public String reverseWords2(String s) {
         if (s == null || s.length() == 0) return s;
