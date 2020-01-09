@@ -52,5 +52,18 @@ public class ClimbingStairs {
         }
         return res;
     }
+
+    public int climbStairs(int n) {
+        if (n <= 2) return n;
+        int fisrt = 1;
+        int second = 2;
+        int third = 3;
+        for (int i = 2; i < n; i++) {
+            third = fisrt + second;
+            fisrt = second;
+            second = third;
+        }
+        return third;
+    }
 }
 
