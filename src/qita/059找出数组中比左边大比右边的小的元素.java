@@ -5,6 +5,7 @@ public class Main59 {
     public void findElements(int[] data) {
         int len = data.length;
         // 从右往左，寻找每个位置及其之后的最小数
+        //例如:rightMin[i+1],存储的是倒数(从右向左数),i+1索引到数组末尾范围内最小的数[i+1,nums.length-1]
         int rightMin[] = new int[len];
         int r_min = data[len - 1];
         for (int i = len - 1; i >= 0; --i) {
