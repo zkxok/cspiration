@@ -24,7 +24,7 @@ public class FindMinimuminRotatedSortedArray {
      * @param nums
      * @return
      */
-    public int findMin(int[] nums) {
+    public int findMin(int[] nums) {//注意还要考虑完全正序和完全逆序的情况，我的两种错误写法就是没有考虑这点
         if (nums == null || nums.length == 0) return Integer.MIN_VALUE;
         int start = 0;
         int end = nums.length - 1;
