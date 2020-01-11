@@ -20,14 +20,14 @@ public class Pow {
      * @param n
      * @return
      */
-    public static double myPow1(double x, int n) {
+    public double myPow1(double x, int n) {
         if (n > 0) {
             return pow(x, n);
         } else {
             return  1.0 / pow(x, n);
         }
     }
-    public static double pow (double x, int n) {
+    public double pow (double x, int n) {
         if (n == 0) {
             return 1;
         }
@@ -38,7 +38,7 @@ public class Pow {
             return y * y * x;
         }
     }
-
+    //time:O(logn),space:O(1)
     public static double myPow2(double x, int n) {
         if (n == 0) return 1;
         double res = 1;
@@ -55,5 +55,18 @@ public class Pow {
             return 1.0 / res;
         }
         return res;
+    }
+    //time:O(logn),space:O(1),myPow2简化版
+    public double myPow3(double x, int n) {
+        double res = 1.0;
+        //long abs = Math.abs((long)n);
+        //long k = (long)n;不用强转long,因为这里没有把负数变成正数,不会越界
+        for(int i = n; i != 0; i /= 2){//2//1
+            if(i % 2 != 0){//奇数
+                res *= x;//3*81=243.0
+            }
+            x *= x;//9//81
+        }
+        return  n < 0 ? 1 / res : res;
     }
 }
