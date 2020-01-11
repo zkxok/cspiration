@@ -20,7 +20,7 @@ public class Pow {
      * @param n
      * @return
      */
-    public double myPow1(double x, int n) {
+    public double myPow1(double x, int n) {//递归版
         if (n > 0) {
             return pow(x, n);
         } else {
