@@ -15,20 +15,20 @@ public class RotateImage {
      Given input matrix =
      [
      [1,2,3],
-     [4,5,6],
+     [4,5,6],//对折1
      [7,8,9]
      ],
 
      rotate the input matrix in-place such that it becomes:
      [
      [7,4,1],
-     [8,5,2],
+     [8,5,2],//对折3
      [9,6,3]
      ]
 
      [
      [1,4,7],
-     [2,5,8],
+     [2,5,8],//对折2
      [3,6,9]
      ]
 
@@ -36,7 +36,7 @@ public class RotateImage {
      space : O(1)
      * @param matrix
      */
-    public void rotate(int[][] matrix) {
+    public void rotate(int[][] matrix) {//两次对折
         for (int i = 0; i < matrix.length; i++) {
             for (int j = i; j < matrix[0].length; j++) {
                 int temp = matrix[i][j];
