@@ -15,7 +15,7 @@ public class RotateImage {
      Given input matrix =
      [
      [1,2,3],
-     [4,5,6],//对折1
+     [4,5,6],//对折1,沿159
      [7,8,9]
      ],
 
@@ -28,7 +28,7 @@ public class RotateImage {
 
      [
      [1,4,7],
-     [2,5,8],//对折2
+     [2,5,8],//对折2,沿456
      [3,6,9]
      ]
 
