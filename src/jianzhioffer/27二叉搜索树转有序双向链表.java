@@ -18,7 +18,7 @@ class Node {
 }
 
 public class Solution {
-	// 直接用中序遍历
+	// 直接用中序遍历，与LC426相同，唯一区别就是，这里不需要成环，LC需要成环
 	Node head = null;
 	Node realHead = null;
 
