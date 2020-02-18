@@ -28,7 +28,7 @@ public class Solution {
 	tempList.add(root.val);
 	target -= root.val;// 一直减，减到0证明刚好等于target,且没有子节点证明是一整条路径(已经到达叶结点)
 	if (target == 0 && root.left == null && root.right == null) {
-		res.add(new ArrayList<>(tempList));
+	    res.add(new ArrayList<>(tempList));
 	}
 	helper(res, tempList, root.left, target);
 	helper(res, tempList, root.right, target);
