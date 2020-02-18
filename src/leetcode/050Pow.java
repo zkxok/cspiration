@@ -56,6 +56,7 @@ public class Pow {
         }
         return res;
     }
+    *****************************************
     //time:O(logn),space:O(1),myPow2简化版
     public double myPow3(double x, int n) {
         double res = 1.0;
