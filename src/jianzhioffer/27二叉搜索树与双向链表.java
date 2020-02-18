@@ -22,7 +22,7 @@ public class Solution {
 	Node head = null;
 	Node realHead = null;
 
-	public Node Convert(Node root) {
+	public Node Convert(Node root) {//首选解法
 		helper(root);
 		return realHead;
 	}
