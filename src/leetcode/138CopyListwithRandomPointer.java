@@ -29,11 +29,11 @@ public class CopyListwithRandomPointer {
      * @param head
      * @return
      */
-    public RandomListNode copyRandomList(RandomListNode head) {
-        HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
-        RandomListNode cur = head;
+    public Node copyRandomList(Node head) {
+        HashMap<Node, Node> map = new HashMap<>();
+        Node cur = head;
         while (cur != null) {
-            map.put(cur, new RandomListNode(cur.label));
+            map.put(cur, new Node(cur.val));
             cur = cur.next;
         }
         cur = head;
@@ -44,22 +44,21 @@ public class CopyListwithRandomPointer {
         }
         return map.get(head);
     }
-
+//**********
     /**
-
      1->1'->2->2'->3->3'->4->4'
 
      1'->2'->3'->4'
      * @param head
      * @return
      */
-    public RandomListNode copyRandomList2(RandomListNode head) {
-        RandomListNode cur = head;
-        RandomListNode next;
+     public Node copyRandomList2(Node head) {
+        Node cur = head;
+        Node next;
         //next copy
         while (cur != null) {
             next = cur.next;
-            RandomListNode copy = new RandomListNode(cur.label);
+            Node copy = new Node(cur.val);
             cur.next = copy;
             copy.next = next;
             cur = next;
@@ -73,9 +72,9 @@ public class CopyListwithRandomPointer {
             cur = cur.next.next;
         }
         cur = head;
-        RandomListNode dummy = new RandomListNode(0);
-        RandomListNode copy;
-        RandomListNode copycur = dummy;
+        Node dummy = new Node(0);
+        Node copy;
+        Node copycur = dummy;
 
         while (cur != null) {
             next = cur.next.next;
@@ -87,4 +86,20 @@ public class CopyListwithRandomPointer {
         }
         return dummy.next;
     }
+    
+    
+    /*
+// Definition for a Node.
+class Node {
+    int val;
+    Node next;
+    Node random;
+
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
+}
+*/
 }
