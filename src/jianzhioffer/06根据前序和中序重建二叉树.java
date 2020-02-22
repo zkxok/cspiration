@@ -1,8 +1,8 @@
-public TreeNode buildTree2(int[] preorder, int[] inorder) {
+public TreeNode buildTree(int[] preorder, int[] inorder) {
     return helper(preorder,inorder,0,0,inorder.length-1);
 }
 
-public TreeNode helper2(int[] preorder,int[] inorder,int preStart,int inStart,int inEnd){
+public TreeNode helper(int[] preorder,int[] inorder,int preStart,int inStart,int inEnd){
     if(preStart>preorder.length-1||inStart>inEnd){//preStart>preorder.length-1||可加可不加
         return null;
     }
