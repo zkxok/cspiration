@@ -11,11 +11,6 @@ import java.util.Random;
  * Date : Sep, 2017
  * Description : TODO
  */
-class RandomListNode {
-    int label;
-    RandomListNode next, random;
-    RandomListNode(int x) { this.label = x; }
-}
 public class CopyListwithRandomPointer {
     /**
      * 138. Copy List with Random Pointer
