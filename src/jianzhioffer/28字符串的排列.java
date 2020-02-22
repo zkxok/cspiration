@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution {//字符串的排列
 
     public String[] permutation(String s) {
         // 直接用string[] 无法判断个数
