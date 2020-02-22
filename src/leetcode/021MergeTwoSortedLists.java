@@ -33,7 +33,7 @@ public class MergeTwoSortedLists {
         return dummy.next;
     }
 
-    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {//递归写法
         if (l1 == null) return l2;
         if (l2 == null) return l1;
         if (l1.val < l2.val) {
