@@ -78,7 +78,7 @@ public class MinStack {
         return minStack.peek();
     }
 }
-
+//*******************************
 class MinStack2 {
 
     /**
@@ -122,15 +122,14 @@ class MinStack2 {
         return min;
     }
 }
+
 //*************************
-
-
-class MinStack {
+class MinStack3 {
     Stack<Integer> stack;
     Stack<Integer> min;
 
     /** initialize your data structure here. */
-    public MinStack() {
+    public MinStack3() {
         stack = new Stack<Integer>();
         min = new Stack<Integer>();
     }
