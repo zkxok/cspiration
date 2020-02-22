@@ -6,9 +6,7 @@ class Solution {
     }
 
     public boolean check(TreeNode A, TreeNode B) {
-        if (B == null) {
-            return true;
-        }
+        if (B == null) return true;
         if (A == null || A.val != B.val) {
             return false;
         }
