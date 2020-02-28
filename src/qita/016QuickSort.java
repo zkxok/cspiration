@@ -1,5 +1,6 @@
 //OJ地址:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325
 public class QuickSort {
+    //平均/最好Time:O(nlogn),Space:O(logn).最坏Time:O(n^2),不稳定
     public void quickSort(int nums[], int left, int right) {
         if (left >= right) return;// left>right肯定不行,left=right时，只有一个数也没必要继续排序
         int pos = partition(nums, left, right);
