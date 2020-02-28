@@ -1,4 +1,4 @@
-//冒泡排序:Time:O(n^2),Space:(1) ,最好Time:O(n),最坏Time:O(n^2)不稳定  
+//冒泡排序:Time:O(n^2),Space:(1) ,最好Time:O(n),最坏Time:O(n^2) 稳定  
 public static void bubbleSort(long[] arr) {
     int n = arr.length;
     boolean exchange = true;
