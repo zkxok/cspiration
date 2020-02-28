@@ -1,4 +1,4 @@
-//选择排序:Time:O(n^2),Space:(1) ,最坏Time:O(n^2),不稳定
+//选择排序:Time:O(n^2),Space:(1) ,最好/最坏Time:O(n^2),不稳定
 public static void selectSort(long arr[]) {
      int minIndex;
      long temp;
