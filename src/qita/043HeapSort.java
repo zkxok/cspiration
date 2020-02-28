@@ -1,26 +1,8 @@
 import java.util.*;
 
 public class Main {
-     //测试用
-     //测试OJ:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325
-    /**public static void main(String[] args) {
-        Scanner cin = new Scanner(System.in);
-        int number = Integer.parseInt(cin.nextLine());
-        String[] data = cin.nextLine().split(" ");
-        int[] array = new int[number];
-        for (int i = 0; i < number; i++) {
-            array[i] = Integer.parseInt(data[i]);
-        }
-        new Main().heapSort(array);
-        for (int i = 0; i < number; i++) {
-            if (i != number - 1)
-                System.out.print(array[i] + " ");
-            else
-                System.out.print(array[i]);
-        }
-    }*/
-
-    // 堆排序
+     
+    // 堆排序:Time:O(nlogn),Space:(1) ,最好/最坏Time:O(nlogn),最坏Time:O(n^2) 不稳定  
     public void heapSort(int[] arr) {
         initHeap(arr);// //构建大顶堆, 从第一个非叶子结点从下至上，从右至左调整结构
         for (int i = arr.length - 1; i > 0; i--) {
@@ -68,4 +50,24 @@ public class Main {
         arr[a] = arr[b];
         arr[b] = temp;
     }
+     
+     //测试用
+     //测试OJ:https://www.nowcoder.com/questionTerminal/3385982ae71d4a1ca8bf3d03614c0325
+    /**public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+        int number = Integer.parseInt(cin.nextLine());
+        String[] data = cin.nextLine().split(" ");
+        int[] array = new int[number];
+        for (int i = 0; i < number; i++) {
+            array[i] = Integer.parseInt(data[i]);
+        }
+        new Main().heapSort(array);
+        for (int i = 0; i < number; i++) {
+            if (i != number - 1)
+                System.out.print(array[i] + " ");
+            else
+                System.out.print(array[i]);
+        }
+    }*/
+
 }
