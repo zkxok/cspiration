@@ -1,4 +1,4 @@
-class Solution {//LC是第K小
+class Solution {//LC是第K小,这里是第K大
     int count = 0;
     int res = 0;
     public int kthLargest(TreeNode root, int k) {
