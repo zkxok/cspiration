@@ -24,12 +24,10 @@ public class KthSmallestElementinaBST {
         return res;
     }
     public void helper(TreeNode root) {
-        if (root == null)
-            return;
+        if (root == null) return;
         helper(root.left);
         count--;
-        if (count == 0)
-            res = root.val;
+        if (count == 0) res = root.val;
         helper(root.right);
     }
 
