@@ -24,7 +24,7 @@ public class MissingNumber {
      * @param nums
      * @return
      */
-    //位运算是最好的方法
+    //位运算是最好的方法,这里不是有序的
     public int missingNumber(int[] nums) {
         int res = nums.length;
         for (int i = 0; i < nums.length; i++) {
