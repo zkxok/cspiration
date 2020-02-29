@@ -1,4 +1,6 @@
 public class RemoveDuplicatesfromSortedListII {
+      //Given 0->1->2->3->3->4->4->5, return 1->2->5.
+     //Given 0->1->1->1->2->3, return 2->3.
      //time : O(n);
      //space : O(1);
     public ListNode deleteDuplicates(ListNode head) {
