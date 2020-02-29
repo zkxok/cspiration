@@ -14,20 +14,4 @@ public class Searcha2DMatrixII {//同LC240 搜索二维矩阵 II
         }
         return false;
     }
-    
-    //*********************
-    public boolean Find(int target, int [][] array) {
-		 int i=0;
-	     int j=array[0].length-1;
-	     while(i<=array.length-1&&j>=0){//&&target!=array[i][j]
-	         if(target==array[i][j]){
-	            return true;
-	         }else if(target<array[i][j]){//小于上移
-	            j--;
-	         }else if(target>array[i][j]){
-	            i++;
-	         }
-	     }
-	     return false;
-    }
 }
