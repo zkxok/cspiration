@@ -4,7 +4,7 @@ public class LinkedListCycleII {
      * space : O(1)
      */
     //题解:https://www.cnblogs.com/hiddenfox/p/3408931.html
-    public ListNode detectCycle(ListNode head) {
+    public ListNode detectCycle(ListNode head) {//meetingNode
         if (head == null || head.next == null) return null;
         ListNode slow = head;
         ListNode fast = head;
