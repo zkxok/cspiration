@@ -17,7 +17,7 @@ public class QuickSort {
             }
             if (nums[l] <= pivot) l++;
             if (nums[r] >= pivot) r--;
-        }
+        }//r<l时退出循环,此时r处的元素比基准点pivot(nums[left])小
         swap(nums, left, r);
         return r;
     }
