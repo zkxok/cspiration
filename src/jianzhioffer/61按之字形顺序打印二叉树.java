@@ -1,4 +1,4 @@
-public static List<List<Integer>> zigzagLevelOrder3(TreeNode root) {
+public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
     List<List<Integer>> res = new ArrayList();
     if(root==null) return res;
     Queue<TreeNode> queue = new LinkedList();
