@@ -1,8 +1,7 @@
 import java.util.*;
 
 public class Main {
-     
-    // 堆排序:Time:O(nlogn),Space:(1) ,最好/最坏Time:O(nlogn),最坏Time:O(n^2) 不稳定  
+    // 堆排序:Time:O(nlogn),Space:(1) ;最好/最坏Time:O(nlogn);不稳定  
     public void heapSort(int[] arr) {
         initHeap(arr);// //构建大顶堆, 从第一个非叶子结点从下至上，从右至左调整结构
         for (int i = arr.length - 1; i > 0; i--) {
