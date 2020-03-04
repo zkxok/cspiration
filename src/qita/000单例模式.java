@@ -21,7 +21,7 @@ public class Singleton {
         return instance;
     }
 }  
-//3.饿汉式
+//3.双重检查锁
 public class Singleton {
     private volatile static Singleton instance;
     private Singleton() {}
@@ -36,7 +36,7 @@ public class Singleton {
         return singleton;
     }
 }
-//4.双重检查锁
+//4.静态内部类式
 public class Singleton {
     private Singleton() {}
     public static Singleton getInstance() {
