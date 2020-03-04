@@ -61,7 +61,7 @@ public class SingletonManager {
 　　　　　　objMap.put(key, instance);
 　　　　}
 　　}
-    public static ObjectgetService(String key) {
+    public static Object getService(String key) {
 　　　　return objMap.get(key);
 　　}
 }
