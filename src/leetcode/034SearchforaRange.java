@@ -39,11 +39,12 @@ public class SearchforaRange {
     public int findFirst(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
-        while (start + 1 < end) {//如果只有两个数，直接判断就好,这里是将范围缩小至两个数
+        //如果只有两个数，直接判断就好,这里是将范围缩小至两个数
+        while (start + 1 < end) {
             int mid = (end - start) / 2 + start;
             if (nums[mid] < target) {
                 start = mid;
-            } else {
+            } else {//如果 nums[mid] >= target,end值会不断的变小(左移),直至只有两个数为止
                 end = mid;
             }
         }
