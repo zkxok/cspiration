@@ -1,7 +1,7 @@
 public class BinaryTreeLevelOrderTraversal {
      //time : O(n);
      //space : O(n);
-    public int maxDepth(TreeNode root) {
+    public int maxDepth(TreeNode root) {//非递归版
         if (root == null) return 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
