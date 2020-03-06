@@ -42,7 +42,7 @@ public class GroupAnagrams {
             } else {
                 List<String> list = new ArrayList<>();
                 list.add(str);
-                map.put(s, res.size());//(s，这一组在res中的位置)
+                map.put(s, res.size());//(s，这一组在res中的位置,索引)
                 res.add(list);
             }
         }
