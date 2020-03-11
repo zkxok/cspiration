@@ -6,7 +6,6 @@ class Clerk {
     public synchronized void get() {
         while (product >= 1) {
             System.out.println("产品已满！");
-
             // 等待
             try {
                 this.wait();
@@ -15,24 +14,21 @@ class Clerk {
             }
         }
         System.out.println(Thread.currentThread().getName() + ":" + ++product);
-        // 唤醒
-        this.notifyAll();
+        this.notifyAll(); // 唤醒
     }
 
     // 售货
     public synchronized void sale() {
         while (product <= 0) {
             System.out.println("缺货！");
-            // 等待
             try {
-                this.wait();
+                this.wait();// 等待
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println(Thread.currentThread().getName() + ":" + --product);
-        // 唤醒
-        this.notifyAll();
+        this.notifyAll();// 唤醒
     }
 }
 
@@ -51,7 +47,6 @@ class Productor implements Runnable {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             clerk.get();
@@ -61,9 +56,7 @@ class Productor implements Runnable {
 
 // 消费者类
 class Consumer implements Runnable {
-
     private Clerk clerk;
-
     public Consumer(Clerk clerk) {
         this.clerk = clerk;
     }
