@@ -79,7 +79,7 @@ public class Solution {
         return s1.substring(end - maxLen + 1, end + 1);
     }
     
-    
+    //牛客OJ地址(求出具体的串):https://www.nowcoder.com/questionTerminal/210741385d37490c97446aa50874e62d
     /*public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         while (in.hasNext()) {
