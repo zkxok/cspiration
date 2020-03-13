@@ -1,6 +1,6 @@
 public class Main {
-    
-    public static void sort(int[] arr) {
+    //Time:O(nlogn),Space:(Ologn),稳定
+    public static void mergeSort(int[] arr) {
         int[] temp = new int[arr.length];// 在排序前，先建好一个长度等于原数组长度的临时数组，避免递归中频繁开辟空间
         sort(arr, 0, arr.length - 1, temp);
     }
