@@ -32,9 +32,11 @@ public class Solution {
             int i = row;
             int j = col;
             int len = 0;
+            //从(i,j)开始向右下方遍历
             while (i < c1.length && j < c2.length) {
                 if (c1[i] != c2[j]) len = 0;
                 else len++;
+		//记录最大值，以及结束字符的位置
                 if (len > maxLen) {
                     end = i;
                     maxLen = len;
