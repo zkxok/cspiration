@@ -17,7 +17,7 @@ public class Main{
             } else if (m > 0 && dp[m][n] == dp[m - 1][n]) {
                 m--;
             } else {
-                res[index--] = c1[m];
+                res[index--] = c1[m];//从表格尾部开始加
                 m--;
                 n--;
             }
