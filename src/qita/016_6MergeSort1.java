@@ -1,5 +1,6 @@
 import java.util.*;
 public class MergeSort {
+    //Time:O(nlogn),Space:(Ologn),稳定
     public static void mergeSort(int[] arr) {
         mSort(arr, 0, arr.length - 1);
     }
