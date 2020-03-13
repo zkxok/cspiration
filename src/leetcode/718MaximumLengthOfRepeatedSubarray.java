@@ -17,36 +17,37 @@ public class Solution {
         }
         return res;
     }
+	
     //法2:
     //time：O(m*n)，其中 m 和 n是数组 a和 b的长度。
     //space：O(1)
-    public int findLength2(int[] c1, int[] c2) {
-		if (c1 == null || c2 == null || c1.length==0 || c2.length==0)
-			return -1;
-		int row = 0;// 斜线开始位子的行
-		int col = c2.length - 1;
-		int maxLen = 0;// 记录最大长度
-		int end = 0;// 最大长度更新时，记录子串的结尾位置
-		while (row < c1.length) {
-			int i = row;
-			int j = col;
-			int len = 0;
-			while (i < c1.length && j < c2.length) {
-				if (c1[i] != c2[j]) len = 0;
-				else len++;
-				if (len > maxLen) {
-					end = i;
-					maxLen = len;
-				}
-				i++;
-				j++;
-			}
-			if (col > 0) col--;// 斜线开始位置的列先向左移动
-			else row++;// 列移动到最左之后，行向下移动
-		}
-		return maxLen;
-	}
-    
+     public int findLength2(int[] c1, int[] c2) {
+        if (c1 == null || c2 == null || c1.length==0 || c2.length==0)
+            return -1;
+        int row = 0;// 斜线开始位子的行
+        int col = c2.length - 1;
+        int maxLen = 0;// 记录最大长度
+        int end = 0;// 最大长度更新时，记录子串的结尾位置
+        while (row < c1.length) {
+            int i = row;
+            int j = col;
+            int len = 0;
+            while (i < c1.length && j < c2.length) {
+                if (c1[i] != c2[j]) len = 0;
+                else len++;
+                if (len > maxLen) {
+                    end = i;
+                    maxLen = len;
+                }
+                i++;
+                j++;
+            }
+            if (col > 0) col--;// 斜线开始位置的列先向左移动
+            else row++;// 列移动到最左之后，行向下移动
+        }
+        return maxLen;
+    }
+	
     //求出最长公共子串结果
     //time：O(m*n)，其中 m 和 n是s1和 s2的长度。
     //space：O(1)
