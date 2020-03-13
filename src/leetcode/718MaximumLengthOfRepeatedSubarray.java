@@ -44,6 +44,7 @@ public class Solution {
                 i++;
                 j++;
             }
+	    //从控制每轮遍历，起始点
             if (col > 0) col--;// 斜线开始位置的列先向左移动
             else row++;// 列移动到最左之后，行向下移动
         }
@@ -66,6 +67,7 @@ public class Solution {
             int i = row;
             int j = col;
             int len = 0;
+            //从(i,j)开始向右下方遍历
             while (i < c1.length && j < c2.length) {
                 if (c1[i] != c2[j]) len = 0;
                 else len++;
@@ -76,6 +78,7 @@ public class Solution {
                 i++;
                 j++;
             }
+	    //从控制每轮遍历，起始点
             if (col > 0) col--;// 斜线开始位置的列先向左移动
             else row++;// 列移动到最左之后，行向下移动
         }
