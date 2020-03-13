@@ -1,8 +1,23 @@
 import java.util.*;
 public class Main{
+    public int lcsLen(String s1, String s2) {//求公共子序列的长度
+        int m = s1.length(), n = s2.length();
+        int[][] dp = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1] + 1;
+                } else {
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+                }
+            }
+        }
+        return dp[m][n];
+    }
+    
     //time:O(m*n),space:O(m*n)
     //time(不算构建dp数组):O(1),space:O(m*n)
-    public static String lcs(String s1, String s2) {
+    public static String lcs(String s1, String s2) {//求公共子序列
         if (s1 == null || s2 == null || s1.equals("") || s2.equals(""))
             return "";
         char[] c1 = s1.toCharArray();
@@ -40,11 +55,14 @@ public class Main{
         }
         return dp;
     }
-
-    public static void main(String[] args) {
+    
+    
+    
+    //牛客OJ:https://www.nowcoder.com/questionTerminal/4727c06b9ee9446cab2e859b4bb86bb8
+    /*public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str1 = sc.next();
         String str2 = sc.next();
         System.out.println(lcs(str1, str2));
-    }
+    }*/
 }
