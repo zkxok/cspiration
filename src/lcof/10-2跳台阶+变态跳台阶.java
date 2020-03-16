@@ -27,8 +27,8 @@
    //跳台阶3:(此题好像不能用非递归)
    //n阶楼梯，每次能走1阶或2阶或5阶，问：到n阶总共有多少种走法
     public int jump(int n) {
-	    if (n == 0) return 1;
-	    if (n <= 2) return n;
-	    if (n < 5) return jump(n - 1) + jump(n - 2);
-	    return jump(n - 1) + jump(n - 2) + jump(n - 5);
+	if (n == 0) return 1;
+	if (n <= 2) return n;
+	if (n < 5) return jump(n - 1) + jump(n - 2);
+	return jump(n - 1) + jump(n - 2) + jump(n - 5);
     }
