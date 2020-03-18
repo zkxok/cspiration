@@ -17,10 +17,10 @@ public class MergeTwoSortedLists {
         ListNode cur = dummy;
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
-                cur.next = new ListNode(l1.val);
+                cur.next = new ListNode(l1.val);//=l1,不用new 新节点
                 l1 = l1.next;
             } else {
-                cur.next = new ListNode(l2.val);
+                cur.next = new ListNode(l2.val);//=l2,不用new 新节点
                 l2= l2.next;
             }
             cur = cur.next;
@@ -44,4 +44,28 @@ public class MergeTwoSortedLists {
             return l2;
         }
     }
+    
+   public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        // 类似归并排序中的合并过程
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                cur.next =l1;
+                l1 = l1.next;
+            } else {
+                cur.next =l2;
+                l2= l2.next;
+            }
+            cur = cur.next;
+        }
+        // 任一为空，直接连接另一条链表
+        if (l1 != null) {
+            cur.next = l1;
+        } else {
+            cur.next = l2;
+        }
+        return dummy.next;
+    }
+	
 }
