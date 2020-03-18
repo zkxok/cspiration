@@ -67,5 +67,11 @@ public class MergeTwoSortedLists {
         }
         return dummy.next;
     }
+    //扩展:单向不递减链表，归并并且删除有重复的节点
+	1-2-3-4-4-5-8
+	2-5-6-7
+	
+	1-3-6-7-8
+	1-2-3-4-5-6-7-8
 	
 }
