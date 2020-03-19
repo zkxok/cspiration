@@ -56,8 +56,8 @@ public class CourseSchedule {
      * @param prerequisites
      * @return
      */
-
-    // BFS
+     
+    // BFS检测有向图是否有环==检测死锁
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] indegree = new int[numCourses];
         int res = numCourses;
