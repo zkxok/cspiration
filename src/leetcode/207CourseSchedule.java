@@ -61,12 +61,14 @@ public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] indegree = new int[numCourses];
         int res = numCourses;
+        //计算所有节点的入度
         for (int[] pair : prerequisites) {
             indegree[pair[0]]++;
         }
 
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < indegree.length; i++) {
+            //将入度为0的加入队列
             if (indegree[i] == 0) {
                 queue.offer(i);
             }
