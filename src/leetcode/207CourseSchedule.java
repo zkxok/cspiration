@@ -87,6 +87,7 @@ public class CourseSchedule {
                 }
             }
         }
+        //res==0，说明所有的元素都入过队列，且出了队列
         return res == 0;
     }
 }
