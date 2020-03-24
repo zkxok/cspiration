@@ -61,7 +61,7 @@ public class CourseSchedule {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] indegree = new int[numCourses];
         int res = numCourses;
-        //计算所有节点的入度
+        //计算所有节点pair[0]的入度
         for (int[] pair : prerequisites) {
             indegree[pair[0]]++;
         }
@@ -75,12 +75,13 @@ public class CourseSchedule {
         }
 
         while (!queue.isEmpty()) {
+            //将每一个元素(入度为0的)出队列,当图中所有元素都入队列后且都出队列，那么没有环
             int pre = queue.poll();
-            res--;
+            res--;//记录出队列的次数，当所有元素都入队列且出队列，那么res==0,没有环，否则有环
             for (int[] pair : prerequisites) {
-                if (pair[1] == pre) {
-                    indegree[pair[0]]--;
-                    if (indegree[pair[0]] == 0) {
+                if (pair[1] == pre) {//找到入度为0节点的邻接节点
+                    indegree[pair[0]]--;//将其邻接节点入度-1
+                    if (indegree[pair[0]] == 0) {//入度-1后又有可能入度变成0，将入度为0的加入队列
                         queue.offer(pair[0]);
                     }
                 }
