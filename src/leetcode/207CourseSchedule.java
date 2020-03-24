@@ -88,6 +88,7 @@ public class CourseSchedule {
             }
         }
         //res==0，说明所有的元素都入过队列，且出了队列
+        //res==0,说明有向图无环,可以完成选修课程
         return res == 0;
     }
 }
