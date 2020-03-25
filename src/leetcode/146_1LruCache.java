@@ -1,3 +1,4 @@
+//题解:https://leetcode-cn.com/problems/lru-cache-lcci/solution/linkedhashmap-shuang-lian-biao-hashmap-dan-lian-2/
 解法一：使用LinkedHashMap
 public class LRUCache{
     int capacity;
