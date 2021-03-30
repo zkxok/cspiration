@@ -3,6 +3,7 @@ package test;
 import java.util.*;
 
 //https://www.geeksforgeeks.org/detect-cycle-in-a-graph/
+//https://github.com/scarcoco/projx/issues/38
 public class Main {
 
 
