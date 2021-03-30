@@ -1,3 +1,4 @@
+//其他方法: https://segmentfault.com/a/1190000021433079?utm_source=sf-similar-article
 //*********3个线程交替打印0->100***************
 public class Main012 {
     public static void main(String[] args) {
